@@ -1,7 +1,9 @@
-// import SideMenu from "@/components/SideMenu/page";
+import SideMenu from "@/components/SideMenu/page";
 import { Inter } from "next/font/google";
 import Signin from "./signin";
-import Navbar from "@/components/NavBar/page";
+// import Helpcenter from "./helpcenter";
+import Settings from "./settings";
+
 
 
 
@@ -13,7 +15,9 @@ export default function Home() {
       <div>
         {/* <Signin/> */}
         {/* <SideMenu/> */}
-        <Navbar/>
+        {/* <Helpcenter/> */}
+        <Settings/>
+     
       </div>
        
       
