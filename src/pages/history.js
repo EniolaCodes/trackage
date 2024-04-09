@@ -1,11 +1,15 @@
 import React from 'react'
+import Userlayout from './userlayout'
 
-const History = () =>{
+const History = () => {
   return (
-    <div>
-      I am the tracking history
-    </div>
+    <Userlayout>
+        <div>
+            I am the history
+        </div>
+    </Userlayout>
+   
   )
 }
 
-export default history
+export default History

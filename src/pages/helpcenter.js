@@ -1,8 +1,10 @@
 import FAQContainer from "@/components/FAQContainer"
+import Userlayout from "./userlayout"
 
 const Helpcenter =() => {
   return (
-    <div className="w-full">
+    <Userlayout>
+    <div className="">
       <div className="bg-blue-800 text-white text-xl rounded p-4 tracking-tight leading-8">
         <h2 className="mb-6">Help Center</h2>
         <p className="mb-3">We understand that you may have questions about using our service, and we are here to help while we continually update
@@ -18,6 +20,8 @@ const Helpcenter =() => {
       <h1 className="text-3xl font-semibold text-left my-8">FREQUENTLY ASKED QUESTIONS</h1>
       <FAQContainer />
     </div>
+    </Userlayout>
+
 
   )
 }

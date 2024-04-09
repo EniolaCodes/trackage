@@ -4,82 +4,54 @@ import Image from 'next/image'
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from 'react';
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
+
+import axios from "axios";
 
 
 export default function Signup(){
     const [show, setShow] = useState({ password: false});
+    const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
     const router = useRouter();
-    // const { data: session, status: sessionStatus } = useSession();
-
-    // useEffect(() => {
-    //   if (sessionStatus === "authenticated") {
-    //     router.replace("/dashboard");
-    //   }
-    // }, [sessionStatus, router]);
+   
+    const handleSubmit = async (e) => {
+      e.preventDefault();
   
-
-    const isValidEmail = (email) => {
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        return emailRegex.test(email);
-      };
-    
-    
-    const handleSubmit = async (e) =>{
-        e.preventDefault();
-        const username = e?.target[0]?.value
-        const email = e?.target[0]?.value;
-        const password = e?.target[1]?.value;
-
-        if (!isValidEmail(email)) {
-            setError("Email is invalid");
-            return;
+      try {
+        // Send POST request to backend API
+        const response = await axios.post(
+          "/api/users/signup",
+          {
+            username,
+            email,
+            password,
           }
-      
-          if (!password || password.length < 8) {
-            setError("Password is invalid");
-            return;
-          }
-          try {
-            const res = await fetch("/api/register", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email,
-                password,
-              }),
-            });
-            if (res.status === 400) {
-              setError("This email is already registered");
-            }
-            if (res.status === 200) {
-              setError("");
-              router.push("/signin");
-            }
-          } catch (error) {
-            setError("Error, try again");
-            console.log(error);
-          }
-        };
-      
-        // if (sessionStatus === "loading") {
-        //   return <h1>Loading...</h1>;
-        // }
-      
-     
-     
-  
-     
+        );
+          router.push("/")
+        // Handle successful signup
+        console.log("User signed up successfully:", response);
+        
+      } catch (error) {
+        // Handle signup error
+        console.error("Error signing up user:", error.response);
+        // You can display an error message to the user
+      }
+    };
+   
     
+       
+   
     return(
         
         
 
         <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>
-            <section className='imgContainer flex-1 items-center justify-center md:items-start'></section>
+            <section className='flex-1 items-center justify-center md:items-start'>
+             
+            </section>
             <section className='flex-1 items-center justify-center md:items-start bg-white'>
                 <div className='p-6 md:p-12'>
                     <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
@@ -104,7 +76,9 @@ export default function Signup(){
                             <div className='mt-4'>
                                 <div className="relative">
                                 <label htmlFor='Name' className="block font-medium leading-6 text-l text-gray-800">username: </label>
-                                <input name="name" type="name" placeholder="Enter Your userame" 
+                                <input name="name" type="name" value={username}
+            onChange={(e) => setUserName(e?.target?.value)}
+                                placeholder="Enter Your userame" 
 
                                   className="block w-full rounded-md border-0 mt-2
                                 py-1.5 pl-2 text-gray-900 
@@ -118,7 +92,9 @@ export default function Signup(){
                                 </div>
                                 <div className="mt-6 relative">
                                 <label htmlFor='email' className="block font-medium leading-6 text-l text-gray-800">Email: </label>
-                                <input name="email" type="email" placeholder="LauranSomebody@gmail.com" 
+                                <input name="email" type="email" value={email}
+            onChange={(e) => setEmail(e?.target?.value)}
+                                placeholder="LauranSomebody@gmail.com" 
 
                                  className="block w-full rounded-md border-0 mt-2
                                 py-1.5 pl-2 text-gray-900 
@@ -132,7 +108,10 @@ export default function Signup(){
                                 </div>
                                 <div className="mt-6 relative">
                                 <label htmlFor='password' className="block font-medium leading-6 text-l text-gray-800">Password: </label>
-                                <input name="password" placeholder="*********"  type={`${show.password ? "text" : "password"}`} 
+                                <input name="password" placeholder="*********" 
+                                value={password}
+                                onChange={(e) => setPassword(e?.target?.value)}
+                                 type={`${show.password ? "text" : "password"}`} 
 
 
                                   className="block w-full rounded-md border-0 mt-2

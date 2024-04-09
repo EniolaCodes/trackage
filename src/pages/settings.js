@@ -1,6 +1,7 @@
-// components/Settings.js
+
 
 import { useState } from 'react';
+import Userlayout from './userlayout';
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("account");
@@ -10,6 +11,7 @@ const Settings = () => {
   };
 
   return (
+    <Userlayout>
     <div className="container mx-auto p-4">
       <div className="flex flex-row md:flex-col">
         
@@ -134,6 +136,8 @@ const Settings = () => {
         </div>
       </div>
     </div>
+    </Userlayout>
+
   );
 };
 
