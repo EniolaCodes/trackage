@@ -3,9 +3,10 @@ import Image from 'next/image';
 import { BiSolidPackage } from "react-icons/bi";
 import { MdTrackChanges, MdOutlineSettings, MdNotifications, MdOutlineHelp, MdOutlineLogout, MdHomeFilled} from "react-icons/md";
 
-const SideMenu = () => {
+const Userlayout = ({children}) => {
   return (
-    <aside className="sidemenu  h-screen w-64 flex  flex-col justify-between">
+    <aside className="flex h-screen">
+      <div className='w-1/4'>
       <div className='mt-4 mb-8'>
       <Image src={'/assets/Frame 18.png'} alt='trackage logo' width={200} height={200} />
       </div>
@@ -33,8 +34,13 @@ const SideMenu = () => {
           <MdOutlineLogout className='text-blue-800'/>
           <Link href={"/logout"} className='ml-4'>Log Out</Link></li>
       </ul>
+      </div>
+
+      <div className='w-3/4'>
+        {children}
+      </div>
     </aside>
   );
 };
 
-export default SideMenu;
+export default Userlayout;
