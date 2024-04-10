@@ -5,11 +5,14 @@ import Adminlayout from './adminlayout'
 const Overview = () => {
   const [packages, setPackages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
+  const [confirmationPackageId, setConfirmationPackageId] = useState('');
+  const [confirmationAction, setConfirmationAction] = useState('');
 
   const addNewPackage = () => {
     const newPackage = {
       id: packages.length + 1,
-      trackingId: `TRACK${packages.length + 1}`,
+      trackingId: `TRG${packages.length + 1}`,
       customerName: '',
       dateSubmitted: new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }),
       status: 'Pending'
@@ -26,6 +29,23 @@ const Overview = () => {
 
   
   const filteredPackages = packages.filter(pkg => pkg.trackingId.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  const confirmAction = (id, action) => {
+    setConfirmationVisible(true);
+    setConfirmationPackageId(id);
+    setConfirmationAction(action);
+  };
+
+  const handleConfirm = (confirmed) => {
+    if (confirmed) {
+      if (confirmationAction === 'reject') {
+        handleStatusChange(confirmationPackageId, 'Rejected');
+      } else if (confirmationAction === 'approve') {
+        handleStatusChange(confirmationPackageId, 'Approved');
+      }
+    }
+    setConfirmationVisible(false);
+  };
 
 
   
@@ -72,8 +92,8 @@ const Overview = () => {
               <td className="px-4 py-2 text-center">
                 {pkg.status === 'Pending' && (
                   <>
-                    <button className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md mr-4 hover:bg-green-600" onClick={() => handleStatusChange(pkg.id, 'Approved')}>Approve</button>
-                    <button className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => handleStatusChange(pkg.id, 'Rejected')}>Reject</button>
+                    <button className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md mr-2 hover:bg-green-600" onClick={() => confirmAction(pkg.id, 'approve')}>Approve</button>
+                    <button className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => confirmAction(pkg.id, 'reject')}>Reject</button>
                   </>
                 )}
               </td>
@@ -81,6 +101,18 @@ const Overview = () => {
           </tbody>
         </table>
       ))}
+            {confirmationVisible && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-400 bg-opacity-75">
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <p className="mb-2">Are you sure you want to {confirmationAction === 'reject' ? 'reject' : 'approve'} this order?</p>
+            <div className="flex justify-center">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={() => handleConfirm(true)}>Yes</button>
+              <button className="bg-gray-500 text-white px-4 py-2 rounded-md" onClick={() => handleConfirm(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
 </Adminlayout>
   )
