@@ -23,7 +23,9 @@ const Adminlayout = ({children}) => {
           <BiSolidPackage  className='text-blue-800'/>
           <Link href={"/packagemanagement"} className='ml-4'>Tracking Overview</Link> </li>
        
-
+          <li className='mb-8 flex items-center text-xl'>
+          <BiSolidPackage  className='text-blue-800'/>
+          <Link href={"/usermanagement"} className='ml-4'>User Management</Link> </li>
           <li className='mb-8 flex items-center text-xl'>
           <MdNotifications className='text-blue-800'/>
           <Link href={"/adminnotification"} className='ml-4'>Notification</Link> </li>
