@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import Adminlayout from './adminlayout'
 
-const Overview = () => {
+const PackageManagement = () => {
   const [packages, setPackages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -12,7 +12,7 @@ const Overview = () => {
   const addNewPackage = () => {
     const newPackage = {
       id: packages.length + 1,
-      trackingId: `TRG${packages.length + 1}`,
+      trackingId: `TRG00${packages.length + 1}`,
       customerName: '',
       dateSubmitted: new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }),
       status: 'Pending'
@@ -52,7 +52,7 @@ const Overview = () => {
   return (
 
     <Adminlayout>
-<div className="container mx-auto p-4">
+<div className="container mx-auto p-4 ">
       <div className="flex justify-between items-center mb-4">
         <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md" onClick={addNewPackage}>Add New Package</button>
         <input
@@ -64,7 +64,7 @@ const Overview = () => {
         />
       </div>
       {filteredPackages.map(pkg => (
-        <table key={pkg.id} className="w-full mb-4">
+        <table key={pkg.id} className="w-full mb-4 rounded-lg shadow-md">
           <thead className='border-t border-b bg-blue-100'>
               < tr className='rounded-3xl'>
               <th className=" px-4 py-2 text-center" >Tracking ID</th>
@@ -74,7 +74,7 @@ const Overview = () => {
               <th className="px-4 py-2 text-center" >Actions</th>
             </tr>
           </thead>
-          <tbody className='border-t border-b bg-blue-100 rounded-3xl'>
+          <tbody className='border-t border-b bg-blue-100 '>
             <tr className='rounded-3xl'>
               <td className=" px-4 py-2 text-center">{pkg.trackingId}</td>
               <td className="  px-4 py-2 text-center">
@@ -118,4 +118,4 @@ const Overview = () => {
   )
 }
 
-export default Overview
+export default PackageManagement;

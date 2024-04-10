@@ -6,12 +6,12 @@ import Userlayout from "./userlayout";
 const Orders = () => {
   // Dummy data for demonstration
   const trackingData = [
-    { name: 'GIG', trackingNumber: 'ABC123', deportedDate: 'March 23, 2024', deliveryDate: 'March 27, 2024', packageName: 'Package A', status: 'Pending' },
-    { name: 'GUO', trackingNumber: 'DEF456', deportedDate: 'March 25, 2024', deliveryDate: 'April 7, 2024', packageName: 'Package B', status: 'Delivered' },
-    { name: 'Dominos', trackingNumber: 'GHI789', deportedDate: 'March 28, 2024', deliveryDate: 'April 20, 2024', packageName: 'Package D', status: 'Delivered' },
-    { name: 'Chow Chow', trackingNumber: 'GLO789', deportedDate: 'March 30, 2024', deliveryDate: 'April 7, 2024', packageName: 'Package E', status: 'Cancelled' },
-    { name: 'GUO', trackingNumber: 'TOT789', deportedDate: 'April 3, 2024', deliveryDate: 'April 6, 2024', packageName: 'Package F', status: 'Cancelled' },
-    { name: 'GNL', trackingNumber: 'MTI789', deportedDate: 'April 12, 2024', deliveryDate: 'April 15, 2024', packageName: 'Package G', status: 'In-transit' },
+    { name: 'GIG', trackingNumber: 'TKG001', deportedDate: 'March 23, 2024', deliveryDate: 'March 27, 2024', status: 'Pending' },
+    { name: 'GUO', trackingNumber: 'TKG009', deportedDate: 'March 25, 2024', deliveryDate: 'April 7, 2024', status: 'Delivered' },
+    { name: 'Dominos', trackingNumber: 'TKG003', deportedDate: 'March 28, 2024', deliveryDate: 'April 20, 2024',  status: 'Delivered' },
+    { name: 'Chow Chow', trackingNumber: 'TKG010', deportedDate: 'March 30, 2024', deliveryDate: 'April 7, 2024', status: 'Cancelled' },
+    { name: 'GUO', trackingNumber: 'TKG029', deportedDate: 'April 3, 2024', deliveryDate: 'April 6, 2024', status: 'Cancelled' },
+    { name: 'GNL', trackingNumber: 'TKG067', deportedDate: 'April 12, 2024', deliveryDate: 'April 15, 2024',  status: 'In-transit' },
     // Add more dummy data as needed
   ];
 
@@ -53,7 +53,7 @@ const Orders = () => {
               <td className="px-6 py-4 whitespace-nowrap">{item.deliveryDate}</td>
               <td className="px-6 py-4 whitespace-nowrap">{item.packageName}</td>
               <td className="px-6 py-4 whitespace-nowrap">
-                <button className={`px-4 py-2 rounded ${getStatusColor(item.status)}`}>
+                <button className={`px-4 py-2 rounded-3xl ${getStatusColor(item.status)}`}>
                   {item.status}
                 </button>
               </td>
