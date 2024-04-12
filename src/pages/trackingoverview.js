@@ -38,8 +38,8 @@ const PackageManagement = () => {
 
   const handleConfirm = (confirmed) => {
     if (confirmed) {
-      if (confirmationAction === 'reject') {
-        handleStatusChange(confirmationPackageId, 'Rejected');
+      if (confirmationAction === 'delete') {
+        handleStatusChange(confirmationPackageId, 'Deleted');
       } else if (confirmationAction === 'approve') {
         handleStatusChange(confirmationPackageId, 'Approved');
       }
@@ -67,11 +67,11 @@ const PackageManagement = () => {
         <table key={pkg.id} className="w-full mb-4 rounded-lg shadow-md">
           <thead className='border-t border-b bg-blue-100'>
               < tr className='rounded-3xl'>
-              <th className=" px-4 py-2 text-center" >Tracking ID</th>
-              <th className=" px-4 py-2 text-center">Customer Name</th>
-              <th className="px-4 py-2 text-center">Date Submitted</th>
-              <th className= "px-4 py-2 text-center">Status</th>
-              <th className="px-4 py-2 text-center" >Actions</th>
+              <th className=" px-4 py-2 text-center uppercase" >Tracking ID</th>
+              <th className=" px-4 py-2 text-center uppercase">Customer Name</th>
+              <th className="px-4 py-2 text-center uppercase">Date Submitted</th>
+              <th className= "px-4 py-2 text-center uppercase">Status</th>
+              <th className="px-4 py-2 text-center uppercase" >Actions</th>
             </tr>
           </thead>
           <tbody className='border-t border-b bg-blue-100 '>
@@ -88,12 +88,12 @@ const PackageManagement = () => {
                 />
               </td>
               <td className="px-4 py-2 text-center">{pkg.dateSubmitted}</td>
-              <td className={`px-4 py-2 text-center ${pkg.status === 'Rejected' ? 'text-red-500 uppercase font-bold' : (pkg.status === 'Approved' ? 'text-green-500 uppercase font-bold' : '')}`}>{pkg.status}</td>
+              <td className={`px-4 py-2 text-center ${pkg.status === 'Deleted' ? 'text-red-500 uppercase font-bold' : (pkg.status === 'Approved' ? 'text-green-500 uppercase font-bold' : '')}`}>{pkg.status}</td>
               <td className="px-4 py-2 text-center">
                 {pkg.status === 'Pending' && (
                   <>
                     <button className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md mr-2 hover:bg-green-600" onClick={() => confirmAction(pkg.id, 'approve')}>Approve</button>
-                    <button className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => confirmAction(pkg.id, 'reject')}>Reject</button>
+                    <button className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => confirmAction(pkg.id, 'delete')}>Delete</button>
                   </>
                 )}
               </td>
@@ -104,7 +104,7 @@ const PackageManagement = () => {
             {confirmationVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-400 bg-opacity-75">
           <div className="bg-white p-4 rounded-md shadow-md">
-            <p className="mb-2">Are you sure you want to {confirmationAction === 'reject' ? 'reject' : 'approve'} this order?</p>
+            <p className="mb-2">Are you sure you want to {confirmationAction === 'delete' ? 'delete' : 'approve'} this order?</p>
             <div className="flex justify-center">
               <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2" onClick={() => handleConfirm(true)}>Yes</button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-md" onClick={() => handleConfirm(false)}>No</button>

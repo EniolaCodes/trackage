@@ -12,7 +12,7 @@ const Tracking = () => {
       trackingId: 'TKG066',
       deportedDate: 'April 27, 2024',
       deliveryDate: 'May 1, 2024',
-      status: 'In-Transit'
+      status: 'Canceled'
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const Tracking = () => {
       trackingId: 'TKG054',
       deportedDate: 'April 14, 2024',
       deliveryDate: 'April 29, 2024',
-      status: 'In-Transit'
+      status: 'Delivered'
     },
     {
       id: 4,
@@ -46,14 +46,7 @@ const Tracking = () => {
       deliveryDate: ' March 19, 2024',
       status: 'Delivered'
     },
-    {
-      id: 6,
-      name: 'GUO',
-      trackingId: 'TKG076',
-      deportedDate: 'February 21, 2024',
-      deliveryDate: 'April 26, 2024',
-      status: 'Pending'
-    },
+    
   ])
 
 
@@ -65,13 +58,9 @@ const Tracking = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'Canceled':
-        return 'bg-red-500 hover:bg-red-600 transform hover:scale-105';
-      case 'In-Transit':
-        return 'bg-blue-500 hover:bg-blue-600 transform hover:scale-105';
-      case 'Pending':
-        return 'bg-orange-500 hover:bg-orange-600 transform hover:scale-105';
+        return 'bg-red-500 uppercase hover:bg-red-600 transform hover:scale-105';
       case 'Delivered':
-        return 'bg-green-500 hover:bg-green-600 transform hover:scale-105';
+        return 'bg-green-500 uppercase hover:bg-green-600 transform hover:scale-105';
       default:
         return 'bg-gray-500';
     }
@@ -118,11 +107,11 @@ const Tracking = () => {
       <table className="w-full border-collapse">
         <thead className='bg-blue-100'> 
           <tr>
-            <th className="border border-gray-300 px-4 py-2 text-center">Name</th>
-            <th className="border border-gray-300 px-4 py-2 text-center">Tracking ID</th>
-            <th className="border border-gray-300 px-4 py-2 text-center">Deported Date</th>
-            <th className="border border-gray-300 px-4 py-2 text-center">Delivery Date</th>
-            <th className="border border-gray-300 px-4 py-2 text-center">Status</th>
+            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Name</th>
+            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Tracking ID</th>
+            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Deported Date</th>
+            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Delivery Date</th>
+            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Status</th>
           </tr>
         </thead>
         <tbody>

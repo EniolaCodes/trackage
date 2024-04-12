@@ -7,13 +7,9 @@ const Track = ({ name, trackingId, deportedDate, deliveryDate, currentLocation, 
   const getStatusColor = () => {
     switch (status) {
         case 'canceled':
-            return 'bg-red-500 hover:bg-red-600 transform hover:scale-105';
-        case 'in-transit':
-            return 'bg-blue-500 hover:bg-blue-600 transform hover:scale-105';
-        case 'pending':
-            return 'bg-orange-500 hover:bg-orange-600 transform hover:scale-105';
+            return 'bg-red-500 hover:bg-red-600 uppercase transform hover:scale-105';
         case 'delivered':
-            return 'bg-green-500 hover:bg-green-600 transform hover:scale-105';
+            return 'bg-green-500 hover:bg-green-600 uppercase transform hover:scale-105';
         default:
             return 'bg-gray-500';
     }
@@ -24,12 +20,12 @@ const Track = ({ name, trackingId, deportedDate, deliveryDate, currentLocation, 
             <table className="w-full">
                 <thead >
                     <tr>
-                        <th className="px-4 py-2 text-center">Name</th>
-                        <th className="px-4 py-2 text-center">Tracking ID</th>
-                        <th className="px-4 py-2 text-center">Deported Date</th>
-                        <th className="px-4 py-2 text-center">Delivery Date</th>
-                        <th className="px-4 py-2 text-center">Current Location</th>
-                        <th className="px-4 py-2 text-center">Status</th>
+                        <th className="px-4 py-2 text-center uppercase">Name</th>
+                        <th className="px-4 py-2 text-center uppercase">Tracking ID</th>
+                        <th className="px-4 py-2 text-center uppercase">Deported Date</th>
+                        <th className="px-4 py-2 text-center uppercase">Delivery Date</th>
+                        <th className="px-4 py-2 text-center uppercase">Current Location</th>
+                        <th className="px-4 py-2 text-center uppercase">Status</th>
                     </tr>
                 </thead>
                 <tbody >

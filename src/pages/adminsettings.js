@@ -1,12 +1,14 @@
-import React from 'react'
-import Adminlayout from './adminlayout'
+import Generalsetting from '@/components/Generalsetting';
+import Adminlayout from './adminlayout';
 
 const Adminsettings = () => {
+  
   return (
     <Adminlayout>
-      <div>I am the admin settings</div>
+      <Generalsetting/>
     </Adminlayout>
-  )
-}
 
-export default Adminsettings
+  );
+};
+
+export default Adminsettings;
