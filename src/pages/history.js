@@ -87,8 +87,8 @@ const Tracking = () => {
 
   return(
     <Userlayout>
-<div className="container mx-auto p-4">
-      <div className="flex justify-end mb-4">
+<div className="">
+      <div className="flex justify-end mb-6">
         <input
           ref={searchInputRef}
           type="text"

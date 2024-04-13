@@ -27,11 +27,11 @@ const Orders = () => {
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr>
-            <th className="text-left px-6 py-3 bg-blue-100  font-semibold uppercase tracking-wider">Name</th>
-            <th className="text-left px-6 py-3 bg-blue-100  font-semibold uppercase tracking-wider">Tracking Number</th>
-            <th className="text-left px-6 py-3 bg-blue-100  font-semibold uppercase tracking-wider">Deported Date</th>
-            <th className="text-left px-6 py-3 bg-blue-100  font-semibold uppercase tracking-wider">Delivery Date</th>
-            <th className="text-left px-6 py-3 bg-blue-100 font-semibold uppercase tracking-wider">Status</th>
+            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Name</th>
+            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Tracking Number</th>
+            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Deported Date</th>
+            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Delivery Date</th>
+            <th className="text-left px-6 py-3 bg-blue-100 uppercase tracking-wider">Status</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200">

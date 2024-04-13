@@ -14,11 +14,6 @@ const FAQContainer = () => {
         question: "What should I do if my package is delayed or lost?",
         answer: "I'm baby mukbang pinterest ascot, roof party flannel hexagon offal copper mug umami edison bulb mumblecore. Pinterest pour-over vegan biodiesel mixtape, vexillologist kitsch hexagon everyday carry..",
       },
-      {
-        question: "Is my personal information secured?",
-        answer: "I'm baby mukbang pinterest ascot, roof party flannel hexagon offal copper mug umami edison bulb mumblecore. Pinterest pour-over vegan biodiesel mixtape, vexillologist kitsch hexagon everyday carry..",
-      },
-    
   ];
 
   return (

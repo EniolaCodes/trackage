@@ -52,9 +52,9 @@ const PackageManagement = () => {
   return (
 
     <Adminlayout>
-<div className="container mx-auto p-4 ">
+<div className="">
       <div className="flex justify-between items-center mb-4">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md" onClick={addNewPackage}>Add New Package</button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md text-lg" onClick={addNewPackage}>Add New Package</button>
         <input
           type="text"
           value={searchTerm}

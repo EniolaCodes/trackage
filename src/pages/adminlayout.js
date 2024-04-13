@@ -11,9 +11,9 @@ const Adminlayout = ({children}) => {
     setActiveTab(tab);
   };
   return (
-    <aside className="flex  h-screen ">
-      <div className='w-1/4'>
-      <div className='mt-4 mb-8'>
+    <aside className="flex overflow-y-hidden ">
+      <div className='w-1/4 h-screen '>
+      <div className='p-2'>
       <Image src={'/assets/Frame 18.png'} alt='trackage logo' width={200} height={200} />
       </div>
       <ul className='bg-blue-50 h-screen p-8'>
@@ -29,7 +29,7 @@ const Adminlayout = ({children}) => {
 
           <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "tracking overview" ? "text-orange-500" : ""}`}
          onClick={() => handleTabClick("tracking overview")}>
-          <BiSolidPackage  className='text-blue-800'/>
+          <MdTrackChanges className='text-blue-800'/>
           <Link href={"/packagemanagement"} className='ml-4'>Tracking Overview</Link> </li>
        
          
@@ -47,10 +47,10 @@ const Adminlayout = ({children}) => {
           <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "logout" ? "text-orange-500" : ""}`}
          onClick={() => handleTabClick("logout")}>
           <MdOutlineLogout className='text-blue-800'/>
-          <Link href={"/logout"} className='ml-4'>Log Out</Link></li>
+          <Link href={"/adminlogout"} className='ml-4'>Log Out</Link></li>
       </ul>
       </div>
-      <div className='w-3/4'>
+      <div className='w-3/4 p-10 mt-8'>
         {children}
       </div>
       
