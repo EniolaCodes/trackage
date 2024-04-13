@@ -3,9 +3,6 @@ import Link from "next/link";
 import Image from 'next/image'
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from 'react';
-import { useRouter } from "next/router";
-
-import axios from "axios";
 
 
 export default function Signup(){
@@ -15,32 +12,12 @@ export default function Signup(){
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const router = useRouter();
+    
    
     const handleSubmit = async (e) => {
       e.preventDefault();
   
-      try {
-        // Send POST request to backend API
-        const response = await axios.post(
-          "/api/users/signup",
-          {
-            username,
-            email,
-            password,
-          }
-        );
-          router.push("/")
-        // Handle successful signup
-        console.log("User signed up successfully:", response);
-        
-      } catch (error) {
-        // Handle signup error
-        console.error("Error signing up user:", error.response);
-        // You can display an error message to the user
-      }
-    };
-   
+    }
     
        
    
@@ -49,8 +26,7 @@ export default function Signup(){
         
 
         <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>
-            <section className='flex-1 items-center justify-center md:items-start'>
-             
+            <section className='flex-1 items-center justify-center md:items-start overflow-y-hidden'>
             </section>
             <section className='flex-1 items-center justify-center md:items-start bg-white'>
                 <div className='p-6 md:p-12'>

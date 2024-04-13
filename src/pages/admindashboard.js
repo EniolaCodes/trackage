@@ -1,12 +1,11 @@
 import React from 'react'
 import Adminlayout from './adminlayout'
+import GoogleMaps from '@/components/GoogleMaps'
 
 const Admindashboard = () => {
   return (
     <Adminlayout>
-<div>
-      I am the admindashboard
-    </div>
+<GoogleMaps/>
     </Adminlayout>
     
   )
