@@ -14,7 +14,7 @@ export default function Signup(){
 
     
    
-    const handleSubmit = async (e) => {
+    const handleSubmit =  (e) => {
       e.preventDefault();
   
     }
@@ -26,8 +26,8 @@ export default function Signup(){
         
 
         <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>
-            <section className='flex-1 items-center justify-center md:items-start overflow-y-hidden'>
-            </section>
+            {/* <section className='flex-1 items-center justify-center md:items-start overflow-y-hidden'>
+            </section> */}
             <section className='flex-1 items-center justify-center md:items-start bg-white'>
                 <div className='p-6 md:p-12'>
                     <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
@@ -51,12 +51,12 @@ export default function Signup(){
                         <form onSubmit={handleSubmit}>
                             <div className='mt-4'>
                                 <div className="relative">
-                                <label htmlFor='Name' className="block font-medium leading-6 text-l text-gray-800">username: </label>
+                                <label htmlFor='Name' className="block font-medium leading-6 text-lg text-gray-800">Username: </label>
                                 <input name="name" type="name" value={username}
             onChange={(e) => setUserName(e?.target?.value)}
                                 placeholder="Enter Your userame" 
 
-                                  className="block w-full rounded-md border-0 mt-2
+                                  className="block w-full rounded-md border-0 mt-2 text-sm
                                 py-1.5 pl-2 text-gray-900 
                              shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -67,12 +67,12 @@ export default function Signup(){
                     
                                 </div>
                                 <div className="mt-6 relative">
-                                <label htmlFor='email' className="block font-medium leading-6 text-l text-gray-800">Email: </label>
+                                <label htmlFor='email' className="block font-medium leading-6 text-lg text-gray-800">Email: </label>
                                 <input name="email" type="email" value={email}
             onChange={(e) => setEmail(e?.target?.value)}
                                 placeholder="LauranSomebody@gmail.com" 
 
-                                 className="block w-full rounded-md border-0 mt-2
+                                 className="block w-full rounded-md border-0 mt-2 text-sm
                                 py-1.5 pl-2 text-gray-900 
                              shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -83,14 +83,14 @@ export default function Signup(){
 
                                 </div>
                                 <div className="mt-6 relative">
-                                <label htmlFor='password' className="block font-medium leading-6 text-l text-gray-800">Password: </label>
+                                <label htmlFor='password' className="block font-medium leading-6 text-lg text-gray-800">Password: </label>
                                 <input name="password" placeholder="*********" 
                                 value={password}
                                 onChange={(e) => setPassword(e?.target?.value)}
                                  type={`${show.password ? "text" : "password"}`} 
 
 
-                                  className="block w-full rounded-md border-0 mt-2
+                                  className="block w-full rounded-md border-0 mt-2 text-sm
                                 py-1.5 pl-2 text-gray-900 
                              shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -108,7 +108,7 @@ export default function Signup(){
                                 <div className="mt-6">
                                     <button 
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-l font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offest-2 focus-visible:outline-indigo-600"
+                                    className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offest-2 focus-visible:outline-indigo-600"
                                     >
                                       Sign Up
                                     </button>

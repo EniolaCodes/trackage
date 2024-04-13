@@ -16,47 +16,22 @@ export default function Signin(){
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const router = useRouter();
+    
 
-    const handleLogin = async (e) => {
+    const handleLogin = (e)  => {
       e.preventDefault();
   
-      try {
-        const response = await fetch(
-          "/api/users/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-          }
-        );
-  
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.error);
-        }
-  
-        const userData = await response.json();
-        localStorage.setItem("userData", JSON.stringify(userData));
-        router.push("/dashboard")
-        // Login successful, navigate to dashboard or perform other actions
-        console.log("Login successful");
-      } catch (error) {
-        setError(error.message);
-      }
-    };
+    }
     
 
 
 
     return(
         <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>
-        <section className='flex-1 items-center justify-center md:items-start bg-white'>
+        {/* <section className='flex-1 items-center justify-center md:items-start bg-white'>
         
       
-        </section>
+        </section> */}
           
             <section className='flex-1 items-center justify-center md:items-start bg-white'>
             <div className='p-6 md:p-12'>
@@ -70,9 +45,9 @@ export default function Signin(){
                         <form onSubmit={handleLogin}>
                             <div className='mt-4'>
                             <div className="mt-6 relative">
-                                <label htmlFor='email' className="block font-medium leading-6 text-l text-gray-800">Email: </label>
+                                <label htmlFor='email' className="block font-medium leading-6 text-lg text-gray-800">Email: </label>
                                 <input  name="email"  type="email" value={email} onChange={(e) => setEmail(e?.target?.value)}   className="block w-full rounded-md border-0 mt-2
-                                py-1.5 pl-2 text-gray-900 
+                                py-1.5 pl-2 text-gray-900 text-sm
                              shadow-sm ring-1 ring-insert ring-gray-300  focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6" 
                                 
@@ -87,12 +62,12 @@ export default function Signin(){
 
                                 </div>
                                 <div className="mt-6 relative">
-                                <label htmlFor='password' className="block font-medium leading-6 text-l text-gray-800">Password: </label>
+                                <label htmlFor='password' className="block font-medium leading-6 text-lg text-gray-800">Password: </label>
                                 <input name="password"   
  type={`${show ? "text" : "password"}`}
  placeholder="**********"
  value={password} onChange={(e) => setPassword(e?.target?.value)}   
-                                  className="block w-full rounded-md border-0 mt-2
+                                  className="block w-full rounded-md border-0 mt-2 text-sm
                                 py-1.5 pl-2 text-gray-900 
                              shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
@@ -112,7 +87,7 @@ export default function Signin(){
                                 <div className="mt-6">
                                     <button 
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-l font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offest-2 focus-visible:outline-indigo-600"
+                                    className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offest-2 focus-visible:outline-indigo-600"
                                     >
                                       Sign in
                                     </button>

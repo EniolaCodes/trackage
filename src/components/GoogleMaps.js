@@ -53,7 +53,7 @@ export default function GoogleMaps() {
           Search
         </button>
       </div>
-      <div className="h-[90%]" ref={mapRef} />;
+      <div className="h-[90%]" ref={mapRef} />
         </>
     )
     
