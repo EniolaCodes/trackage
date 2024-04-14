@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 const Logout = () => {
   
-  return (
-   
+  return ( 
       <div className="bg-blue-100 p-8 rounded-lg shadow-md w-full h-[40%] mt-16">
         <p className="text-xl font-semibold mb-4 text-center">Are you sure you want to logout?</p>
         <div className="flex justify-center">

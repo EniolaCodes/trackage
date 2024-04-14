@@ -1,12 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-
-
-
 const Layout = ({ children }) => {
-    
-  
     return (
         <div>
             <Head>

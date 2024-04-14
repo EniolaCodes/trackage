@@ -1,6 +1,4 @@
-
 import React from 'react'
-
 import { useState } from 'react';
 
 
@@ -72,11 +70,7 @@ const Generalnotice = () => {
           </button>
         </div>
       </form>
-    </div>
-    
-
-  
-    
+    </div>  
   );
 };
 

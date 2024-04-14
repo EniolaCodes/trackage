@@ -1,10 +1,5 @@
 import React from 'react';
-
 const ManageUser = ({ Username, Email, Visited }) => {
-   
-
-
- 
     return (
                 <div className="bg-blue-100 rounded-lg shadow-md mb-4">
             <table className="w-full">
@@ -25,10 +20,6 @@ const ManageUser = ({ Username, Email, Visited }) => {
                 </tbody>
             </table>
         </div>
-        
-
-
     );
-
 };
 export default ManageUser;

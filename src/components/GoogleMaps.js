@@ -55,9 +55,5 @@ export default function GoogleMaps() {
       </div>
       <div className="h-[90%]" ref={mapRef} />
         </>
-    )
-    
-    
-    
-    
+    )  
 }

@@ -8,7 +8,7 @@ const Helpcenter =() => {
       <div className="bg-blue-800 text-white text-xl rounded p-4 tracking-tight leading-8">
         <h2 className="mb-6 text-2xl">Help Center</h2>
         <p className="mb-3">We understand that you may have questions about using our service, and we are here to help while we continually update
-           our FAQs to provide you with the most relevant information.</p>
+          our FAQs to provide you with the most relevant information.</p>
         <p>If you don&#39;t find what you are looking for, don&#39;t hesitate to reach out to our support team for personalized assistance. 
           Your satisfaction is our top priority, and we are committed to providing you with the support you need to make the most of our service.</p>
         <div className="mt-4 flex justify-between">

@@ -9,8 +9,8 @@ const LandingPage = () => {
       <header className="container mx-auto py-8 flex justify-between items-center">
       <Image src={'/assets/Frame 18.png'} alt='trackage logo' width={200} height={200} />
         <nav className="space-x-4">
-          <Link href="/adminlayout" className="text-2xl text-blue-400 font-bold hover:underline">Admin</Link>
-          <Link href="/userlayout" className="text-2xl text-blue-400 font-bold hover:underline">Member</Link>
+          <Link href="/admindashboard" className="text-2xl text-blue-400 font-bold hover:underline">Admin</Link>
+          <Link href="/dashboard" className="text-2xl text-blue-400 font-bold hover:underline">Member</Link>
         </nav>
       </header>
       <main className="container mx-auto flex flex-col items-center justify-center flex-grow">

@@ -5,7 +5,7 @@ import GoogleMaps from '@/components/GoogleMaps'
 const Admindashboard = () => {
   return (
     <Adminlayout>
-<GoogleMaps/>
+      <GoogleMaps/>
     </Adminlayout>
     
   )
