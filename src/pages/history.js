@@ -24,7 +24,7 @@ const Tracking = () => {
     },
     {
       id: 3,
-      name: 'BCT',
+      name: 'Maryam',
       trackingId: 'TKG054',
       deportedDate: 'April 14, 2024',
       deliveryDate: 'April 29, 2024',
@@ -40,11 +40,19 @@ const Tracking = () => {
     },
     {
       id: 5,
-      name: 'BYC',
+      name: 'Simon',
       trackingId: 'TKG011',
-      deportedDate: 'Mrach 17, 2024',
+      deportedDate: 'March 17, 2024',
       deliveryDate: ' March 19, 2024',
       status: 'Delivered'
+    },
+    {
+      id: 6,
+      name: 'BYC',
+      trackingId: 'TKG084',
+      deportedDate: 'April 10, 2024',
+      deliveryDate: ' April 19, 2024',
+      status: 'Canceled'
     },
     
   ])
@@ -67,8 +75,17 @@ const Tracking = () => {
   };
 
   const handleSearch = () => {
-    const result = packages.find(pack => pack.trackingId.toLowerCase().includes(searchTerm.toLowerCase()));
-    setSearchResult(result);
+    const result = packages.filter(pack => 
+      pack.trackingId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pack.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+    );
+      // Check if there are any matching packages
+    if (result.length > 0) {
+       setSearchResult(result);
+  } else {
+    setSearchResult(null); // Set searchResult to null to indicate no matching packages
+  }
+
   };
 
   const handleClickOutside = (event) => {
@@ -94,7 +111,7 @@ const Tracking = () => {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search By Tracking Id"
+          placeholder="Search...."
           className="border border-gray-300 rounded-md px-4 py-2 mr-2"
         />
         <button
@@ -105,7 +122,7 @@ const Tracking = () => {
         </button>
       </div>
       <table className="w-full border-collapse">
-        <thead className='bg-blue-100'> 
+        <thead className='bg-blue-100 rounded-3xl'> 
           <tr>
             <th className="border border-gray-300 uppercase px-4 py-2 text-center">Name</th>
             <th className="border border-gray-300 uppercase px-4 py-2 text-center">Tracking ID</th>
@@ -115,34 +132,37 @@ const Tracking = () => {
           </tr>
         </thead>
         <tbody>
-          {searchResult ? (
-            <tr>
-              <td className="border border-gray-300 px-4 py-2 text-center">{searchResult.name}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">{searchResult.trackingId}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">{searchResult.deportedDate}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">{searchResult.deliveryDate}</td>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                <button className={`px-4 py-2 rounded-md shadow-md text-white ${getStatusColor(searchResult.status)}`}>
-                  {searchResult.status}
-                </button>
-              </td>
-            </tr>
-          ) : (
-            packages.map(pack => (
-              <tr key={pack.id}>
-                <td className="border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
-                <td className="border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
-                <td className="border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
-                <td className="border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  <button className={`px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
-                    {pack.status}
-                  </button>
-                </td>
-              </tr>
-            ))
-          )}
-        </tbody>
+  {searchResult && searchResult.length > 0 ? (
+    searchResult.map((result) => (
+      <tr key={result.id}>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.name}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.trackingId}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.deportedDate}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.deliveryDate}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">
+          <button className={`px-4 py-2 rounded-md shadow-md text-white ${getStatusColor(result.status)}`}>
+            {result.status}
+          </button>
+        </td>
+      </tr>
+    ))
+  ) : (
+    packages.map((pack) => (
+      <tr key={pack.id}>
+        <td className="border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">
+          <button className={`px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
+            {pack.status}
+          </button>
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
+
       </table>
     </div>
     </Userlayout>

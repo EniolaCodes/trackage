@@ -37,6 +37,7 @@ const Generalnotice = () => {
                 <select id="setting1" name="setting1" className="border bg-blue-100 rounded p-1 block w-full mt-2">
                   <option value="option1" className='text-sm'>Push Notification</option>
                   <option value="option2" className='text-sm'>SMS</option>
+                  <option value="option2" className='text-sm'>Email</option>
                 </select>
               </div>
               <div className='ml-8'>
@@ -44,6 +45,7 @@ const Generalnotice = () => {
                 <select id="setting2" name="setting2" className="border bg-blue-100 rounded p-1 block w-full mt-2">
                   <option value="option1" className='text-sm'>Push Notification</option>
                   <option value="option2" className='text-sm'>SMS</option>
+                  <option value="option2" className='text-sm'>Email</option>
                 </select>
               </div>
               <div className='mt-8'>
@@ -51,6 +53,7 @@ const Generalnotice = () => {
                 <select id="setting3" name="setting3" className="border bg-blue-100 rounded p-1 block w-full mt-1">
                   <option value="option1" className='text-sm'>Push Notification</option>
                   <option value="option2" className='text-sm'>SMS</option>
+                  <option value="option2" className='text-sm'>Email</option>
                 </select>
               </div>
               <div className='mt-8 ml-8'>
@@ -58,6 +61,7 @@ const Generalnotice = () => {
                 <select id="setting4" name="setting4" className="border bg-blue-100 rounded p-1 block w-full mt-1">
                   <option value="option1" className='text-sm'>Push Notification</option>
                   <option value="option2" className='text-sm'>SMS</option>
+                  <option value="option2" className='text-sm'>Email</option>
                 </select>
               </div>
             </div>
