@@ -104,9 +104,9 @@ const Generalsetting = () => {
                 <div className="mb-8">
                   <label className="block mb-1 text-lg">Change Notification Type</label>
                   <select className="border px-3 py-2 w-full rounded">
-                    <option value="email" className='text-sm'>SMS</option>
-                    <option value="sms" className='text-sm'>Push Notification</option>
-                    <option value="option2" className='text-sm'>Email</option>
+                    <option value="SMS" className='text-sm'>SMS</option>
+                    <option value="Push Notification" className='text-sm'>Push Notification</option>
+                    <option value="Email" className='text-sm'>Email</option>
                   </select>
                 </div>
                 <button type="submit" onClick={submit}  className="bg-blue-500 text-white text-lg w-full px-4 py-2 rounded hover:bg-blue-600">Save</button>

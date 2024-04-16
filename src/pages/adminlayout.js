@@ -1,72 +1,102 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import MenuItem from '@/components/MenuItem';
+import { useEffect, useState } from 'react';
 import { BiSolidPackage } from "react-icons/bi";
-import { MdTrackChanges, MdOutlineSettings, MdNotifications, MdOutlineHelp, MdOutlineLogout, MdHomeFilled} from "react-icons/md";
+import { MdTrackChanges, MdOutlineSettings, MdNotifications, MdOutlineLogout, MdHomeFilled} from "react-icons/md";
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 
-const Adminlayout = ({children}) => {
-  const [activeTab, setActiveTab] = useState("/dashboard")
+
+const Adminlayout = ({ children }) => {
+  const [activeTab, setActiveTab] = useState('/dashboard');
+  const [nav, setNav] = useState(false);
+
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   const router = useRouter();
-  console.log(router.pathname);
-  
-  useEffect( () =>{
-    setActiveTab(router.pathname)
-  }
-  ,[router.pathname])
+
+  useEffect(() => {
+    setActiveTab(router.pathname);
+  }, [router.pathname]);
+
   return (
-    <aside className="flex overflow-y-hidden ">
-      <div className='w-1/4 h-screen '>
-      <div className='p-2'>
-      <Image src={'/assets/Frame 18.png'} alt='trackage logo' width={200} height={200} />
+    <aside className="flex flex-col md:flex-row overflow-hidden">
+      <div className="bg-blue-50 w-full md:w-1/4 min-h-screen md:h-auto md:border-r border-gray-200">
+        <div className="flex items-center justify-between p-4 md:p-8">
+          <div>
+            <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={200} height={200} />
+          </div>
+          <div onClick={handleNav} className="md:hidden">
+            <AiOutlineMenu size={25} />
+          </div>
+        </div>
+        <ul className={`space-y-2 ${nav ? '' : 'hidden md:block'}`}>
+          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+            Dashboard
+          </MenuItem>
+          <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} onClick={handleNav}>
+               Package Management
+              </MenuItem>
+              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} onClick={handleNav}>
+                Tracking Overview
+              </MenuItem>
+          <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} onClick={handleNav}>
+            Notification
+          </MenuItem>
+          <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} onClick={handleNav}>
+            Settings
+          </MenuItem>
+          <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+            Log Out
+          </MenuItem>
+        </ul>
       </div>
-      <ul className='bg-blue-50 h-screen '>
-        <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/dashboard" ? "w-1/4 bg-blue-100 p-2" : ""} pl-8 pt-8`}
-         >
-        <MdHomeFilled className='text-blue-800'/> 
-        <Link href={"/admindashboard"} className='ml-4'>Dashboard</Link> </li>
 
-          <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/trackingoverview" ? "w-1/4  bg-red-500 p-2" : ""} pl-8 p-2`}
-         >
-          <BiSolidPackage  className='text-blue-800'/>
-          <Link href={"/trackingoverview"} className='ml-4'>Package Management</Link> </li>
-
-          <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/packagemanagement" ? "border-t border-b bg-blue-100 p-2" : ""} pl-8 p-2`}
-         >
-          <MdTrackChanges className='text-blue-800'/>
-          <Link href={"/packagemanagement"} className='ml-4'>Tracking Overview</Link> </li>
-       
-         
-          <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/adminnotification" ? "border-t border-b bg-blue-100 p-2" : ""} pl-8 p-2`}
-         >
-          <MdNotifications className='text-blue-800'/>
-          <Link href={"/adminnotification"} className='ml-4'>Notification</Link> </li>
-
-          <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/adminsettings" ? "border-t border-b bg-blue-100 p-2" : ""} pl-8 p-2`}
-         onClick={() => handleTabClick("settings")}>
-          <MdOutlineSettings className='text-blue-800'/>
-          <Link href={"/adminsettings"} className='ml-4'>Settings</Link>  </li>
-
-
-          <li className={`cursor-pointer mb-8 flex items-center text-xl ${activeTab === "/adminlogout" ? "border-t border-b bg-blue-100 p-2" : ""} pl-8 p-2`}
-         onClick={() => handleTabClick("logout")}>
-          <MdOutlineLogout className='text-blue-800'/>
-          <Link href={"/adminlogout"} className='ml-4'>Log Out</Link></li>
-      </ul>
+      {/* Menu Overlay */}
+      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : 'hidden'}>
+        <div
+          className={
+            nav
+              ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
+              : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
+          }
+        >
+          <div>
+            <div className="flex w-full items-center justify-between">
+              <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={150} height={150} />
+              <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
+                <AiOutlineClose />
+              </div>
+            </div>
+            <ul className="space-y-2 flex flex-col">
+              <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+                Dashboard
+              </MenuItem>
+              <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} onClick={handleNav}>
+               Package Management
+              </MenuItem>
+              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} onClick={handleNav}>
+                Tracking Overview
+              </MenuItem>
+              <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} onClick={handleNav}>
+                Notification
+              </MenuItem>
+              <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} onClick={handleNav}>
+                Settings
+              </MenuItem>
+              <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+                Log Out
+              </MenuItem>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div className='w-3/4 p-10 mt-8'>
-        {children}
-      </div>
-      
+
+      <div className="w-full md:w-3/4 p-4 md:p-10 mt-8">{children}</div>
     </aside>
   );
 };
 
 export default Adminlayout;
-
-
-
-
-
-
