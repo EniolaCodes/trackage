@@ -1,13 +1,14 @@
 import FAQContainer from '@/components/FAQContainer';
 import Userlayout from './userlayout';
 import { FaRocketchat, FaPhone } from 'react-icons/fa';
-import Chatbox from './Chatbox';
 import { MdEmail } from "react-icons/md";
 import Link from 'next/link';
+import TopNav from '@/components/TopNav';
 
 const Helpcenter = () => {
   return (
     <Userlayout>
+      <TopNav/>
       <div className="flex flex-col md:flex-row justify-between mb-8">
         <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mr-0 md:mr-4 md:mb-0">
           <Link href="/chatbox" className="">

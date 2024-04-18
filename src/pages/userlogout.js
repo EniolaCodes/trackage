@@ -1,5 +1,6 @@
 import Logout from "@/components/Logout"
 import Userlayout from "./userlayout"
+import TopNav from "@/components/TopNav"
 
 
 
@@ -8,6 +9,7 @@ import Userlayout from "./userlayout"
 const Userlogout = () =>{
     return(
         <Userlayout>
+            <TopNav/>
             <Logout/>
         </Userlayout>
     )

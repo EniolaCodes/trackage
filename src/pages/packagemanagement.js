@@ -1,6 +1,7 @@
 import React from 'react'
 import Adminlayout from './adminlayout';
 import { useState, useEffect, useRef } from 'react';
+import TopNav from '@/components/TopNav';
 
 
 const Packagemanagement = () => {
@@ -87,7 +88,7 @@ const Packagemanagement = () => {
   
   return (
     <Adminlayout>
-      
+      <TopNav/>
       <div className="flex justify-end mb-6">
         <input
           ref={searchInputRef}

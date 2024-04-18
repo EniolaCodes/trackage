@@ -3,6 +3,10 @@ import FAQItem from './FAQItem';
 const FAQContainer = () => {
   const faqs = [
     {
+      question: "What is trackage?",
+      answer: "I'm baby mukbang pinterest ascot, roof party flannel hexagon offal copper mug umami edison bulb mumblecore. Pinterest pour-over vegan biodiesel mixtape, vexillologist kitsch hexagon everyday carry..",
+    },
+    {
       question: "How do I track my package?",
       answer: "I'm baby mukbang pinterest ascot, roof party flannel hexagon offal copper mug umami edison bulb mumblecore. Pinterest pour-over vegan biodiesel mixtape, vexillologist kitsch hexagon everyday carry..",
     },

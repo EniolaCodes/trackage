@@ -5,7 +5,7 @@ import Image from "next/image"
 const LandingPage = () => {
   return (
     <div className="bg-gradient-to-b from-blue-500 to-blue-700 text-white min-h-screen flex flex-col relative">
-    <Image src={'/assets/map.jpg'} alt='map' layout="fill" objectFit="cover" className="hidden md:block"/>
+    <Image src={'/assets/map.jpg'} alt='map' layout="fill" objectFit="cover" className=""/>
     <div className="relative flex-grow">
       <header className="px-4 md:container mx-auto py-8 flex justify-between items-center">
       <Image src={'/assets/Frame 18.png'} alt='trackage logo' width={200} height={200} className="hidden md:block" />

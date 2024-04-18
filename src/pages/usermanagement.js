@@ -1,10 +1,12 @@
 import React from 'react'
 import Adminlayout from './adminlayout'
 import ManageUser from '@/components/ManageUser'
+import TopNav from '@/components/TopNav'
 
 const Usermanagement = () => {
   return (
     <Adminlayout>
+      <TopNav/>
       <div className='container mx-auto'> 
       <div className='p-4 flex justify-end'>
             <input

@@ -12,6 +12,7 @@ import {
   MdOutlineLogout,
   MdHomeFilled,
 } from 'react-icons/md';
+import Link from 'next/link';
 
 const Userlayout = ({ children }) => {
   const [activeTab, setActiveTab] = useState('/dashboard');
@@ -30,34 +31,36 @@ const Userlayout = ({ children }) => {
   return (
     <aside className="flex flex-col md:flex-row overflow-hidden">
       <div className="bg-blue-50 w-full md:w-1/4 min-h-screen md:h-auto md:border-r border-gray-200">
-        <div className="flex items-center justify-between p-4 md:p-8">
-          <div>
+        <div className="flex items-center justify-between p-4">
+          <Link href="/">
             <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={200} height={200} />
-          </div>
+          </Link>
+            
+         
           <div onClick={handleNav} className="md:hidden">
             <AiOutlineMenu size={25} />
           </div>
         </div>
-        <ul className={`space-y-2 ${nav ? '' : 'hidden md:block'}`}>
-          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+        <ul className='hidden md:block'>
+          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} >
             Dashboard
           </MenuItem>
-          <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />} >
             My Orders
           </MenuItem>
-          <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} >
             Tracking History
           </MenuItem>
-          <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />} >
             Notification
           </MenuItem>
-          <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />}  >
             Settings
           </MenuItem>
-          <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />}  >
             Help Center
           </MenuItem>
-          <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />}  >
             Log Out
           </MenuItem>
         </ul>
@@ -74,31 +77,33 @@ const Userlayout = ({ children }) => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={150} height={150} />
+              <Link href="/">
+                <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={150} height={150} />  
+              </Link>
               <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
                 <AiOutlineClose />
               </div>
             </div>
-            <ul className="space-y-2 flex flex-col">
-              <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+            <ul className="flex flex-col">
+              <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}  >
                 Dashboard
               </MenuItem>
-              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />} >
                 My Orders
               </MenuItem>
-              <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} >
                 Tracking History
               </MenuItem>
-              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />} >
                 Notification
               </MenuItem>
-              <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} >
                 Settings
               </MenuItem>
-              <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />} >
                 Help Center
               </MenuItem>
-              <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />} >
                 Log Out
               </MenuItem>
             </ul>

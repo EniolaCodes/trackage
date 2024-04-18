@@ -33,22 +33,22 @@ const Adminlayout = ({ children }) => {
           </div>
         </div>
         <ul className={`space-y-2 ${nav ? '' : 'hidden md:block'}`}>
-          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}>
             Dashboard
           </MenuItem>
-          <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />}>
                Package Management
               </MenuItem>
-              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />}>
                 Tracking Overview
               </MenuItem>
-          <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />}>
             Notification
           </MenuItem>
-          <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />}>
             Settings
           </MenuItem>
-          <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+          <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />}>
             Log Out
           </MenuItem>
         </ul>
@@ -71,22 +71,22 @@ const Adminlayout = ({ children }) => {
               </div>
             </div>
             <ul className="space-y-2 flex flex-col">
-              <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} >
                 Dashboard
               </MenuItem>
-              <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} >
                Package Management
               </MenuItem>
-              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} >
                 Tracking Overview
               </MenuItem>
-              <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} >
                 Notification
               </MenuItem>
-              <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} >
                 Settings
               </MenuItem>
-              <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} onClick={handleNav}>
+              <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} >
                 Log Out
               </MenuItem>
             </ul>
