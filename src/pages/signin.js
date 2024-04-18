@@ -11,6 +11,8 @@ import { useState } from "react";
 
 
 export default function Signin(){
+    const router = useRouter();
+
     const [show, setShow] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,6 +22,11 @@ export default function Signin(){
 
     const handleLogin = (e)  => {
         e.preventDefault();
+        if(email === 'trackage@gmail.com'){
+            router.push('/admindashboard')
+        }else{
+            router.push('/dashboard')
+        }
 }
     return(
         <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>

@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
-import { FaArrowUp } from "react-icons/fa6";
+import { FaArrowUp, FaBackwardFast } from "react-icons/fa6";
+
+
+import Link from 'next/link';
 
 const Chatbox = () => {
+ 
+  
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
@@ -47,6 +52,13 @@ const Chatbox = () => {
 
   return (
     <div className="flex flex-col h-full max-w-xl mx-auto mt-8">
+      
+      <div className="flex justify-end p-4">
+        <Link href="/">
+          <FaBackwardFast className="text-blue-600 cursor-pointer hover:text-blue-700" size={24} />
+        </Link>
+      </div>
+    
       <div className="flex-1 overflow-y-auto p-4">
         {messages.map((msg, index) => (
           <div

@@ -9,7 +9,7 @@ const Adminnotification = () => {
   
   return (
     <Adminlayout>
-        <TopNav/>
+        
         <Generalnotice/>
     </Adminlayout>
 

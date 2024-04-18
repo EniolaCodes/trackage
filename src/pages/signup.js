@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from 'next/image'
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from 'react';
@@ -12,8 +13,11 @@ export default function Signup(){
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
+    const router = useRouter();
+
     const handleSubmit =  (e) => {
         e.preventDefault();
+        router.push('/signin')
     }
     
     return(

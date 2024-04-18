@@ -15,30 +15,30 @@ const Generalsetting = () => {
   }
   return (
     
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto">
       <div className="flex flex-row md:flex-col">
         
         <div className="flex flex-row justify-between mb-20">
           <div
-            className={`cursor-pointer  pb-1 mb-2 text-xl ${activeTab === "account" ? " text-orange-500" : ""}`}
+            className={`cursor-pointer text-xl ${activeTab === "account" ? " text-blue-500" : ""}`}
             onClick={() => handleTabClick("account")}
           >
             Account Information
           </div>
           <div
-            className={`cursor-pointer pb-1 mb-2 text-xl ${activeTab === "password" ? " text-orange-500" : ""}`}
+            className={`cursor-pointer text-xl ${activeTab === "password" ? " text-blue-500" : ""}`}
             onClick={() => handleTabClick("password")}
           >
             Password Settings
           </div>
           <div
-            className={`cursor-pointer  pb-1 mb-2 text-xl ${activeTab === "notification" ? "text-orange-500" : ""}`}
+            className={`cursor-pointer text-xl ${activeTab === "notification" ? "text-blue-500" : ""}`}
             onClick={() => handleTabClick("notification")}
           >
             Update Notification
           </div>
           <div
-            className={`cursor-pointer  pb-1 text-xl ${activeTab === "security" ? "text-orange-500" : ""}`}
+            className={`cursor-pointer  pb-1 text-xl ${activeTab === "security" ? "text-blue-500" : ""}`}
             onClick={() => handleTabClick("security")}
           >
             Security
@@ -47,7 +47,7 @@ const Generalsetting = () => {
         <div className="md:w-1/2 mx-auto">
         {activeTab === "account" && (
             <div>
-              <h2 className='text-center font-semibold text-xl mb-8'>Update Your Information</h2>
+              <h2 className='text-center font-semibold text-xl'>Update Your Information</h2>
               <form onSubmit={handleSubmit} >
                 <div className="mb-4">
                   <label className="block mb-1 text-lg">Name:</label>
@@ -74,15 +74,15 @@ const Generalsetting = () => {
               <h2 className="text-xl text-center font-semibold mb-8">Update Your Password</h2>
               <form onSubmit={handleSubmit} >
                   <div className="mb-4">
-                    <label className="block mb-1 text-lg">Current Password</label>
+                    <label className="block text-lg">Current Password</label>
                     <input type="password" placeholder='*********' className="border px-3 py-2 w-full rounded text-sm" />
                   </div>
                   <div className="mb-4">
-                    <label className="block mb-1 text-lg">New Password</label>
+                    <label className="block text-lg">New Password</label>
                     <input type="password" placeholder="Set New Password" className="border px-3 py-2 w-full rounded text-sm" />
                   </div>
                   <div className="mb-8">
-                    <label className="block mb-1 text-lg">Confirm New Password</label>
+                    <label className="block text-lg">Confirm New Password</label>
                     <input type="password" placeholder="Set New Password" className="border px-3 py-2 w-full rounded text-sm" />
                   </div>
                 <button type="submit" onClick={submit}  className="bg-blue-500 w-full text-white px-4 py-2 rounded text-lg hover:bg-blue-600">Save</button>
@@ -94,7 +94,7 @@ const Generalsetting = () => {
               <h2 className="text-xl text-center font-semibold mb-8">Update Your Preference</h2>
               <form onSubmit={handleSubmit} >
                 <div className="mb-4">
-                  <label className="block mb-1 text-lg">Change Notification Type</label>
+                  <label className="block text-lg">Change Notification Type</label>
                   <select className="border px-3 py-2 w-full rounded">
                     <option value="email" className='text-sm'>Push Notification</option>
                     <option value="sms" className='text-sm'>SMS</option>
@@ -102,7 +102,7 @@ const Generalsetting = () => {
                   </select>
                 </div>
                 <div className="mb-8">
-                  <label className="block mb-1 text-lg">Change Notification Type</label>
+                  <label className="block text-lg">Change Notification Type</label>
                   <select className="border px-3 py-2 w-full rounded">
                     <option value="SMS" className='text-sm'>SMS</option>
                     <option value="Push Notification" className='text-sm'>Push Notification</option>

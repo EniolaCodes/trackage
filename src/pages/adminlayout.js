@@ -24,7 +24,7 @@ const Adminlayout = ({ children }) => {
   return (
     <aside className="flex flex-col md:flex-row overflow-hidden">
       <div className="bg-blue-50 w-full md:w-1/4 min-h-screen md:h-auto md:border-r border-gray-200">
-        <div className="flex items-center justify-between p-4 md:p-8">
+        <div className="flex items-center justify-between p-4">
           <div>
             <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={200} height={200} />
           </div>
@@ -32,7 +32,7 @@ const Adminlayout = ({ children }) => {
             <AiOutlineMenu size={25} />
           </div>
         </div>
-        <ul className={`space-y-2 ${nav ? '' : 'hidden md:block'}`}>
+        <ul className='hidden:md:block'>
           <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}>
             Dashboard
           </MenuItem>
@@ -70,7 +70,7 @@ const Adminlayout = ({ children }) => {
                 <AiOutlineClose />
               </div>
             </div>
-            <ul className="space-y-2 flex flex-col">
+            <ul className="flex flex-col">
               <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} >
                 Dashboard
               </MenuItem>
@@ -94,7 +94,7 @@ const Adminlayout = ({ children }) => {
         </div>
       </div>
 
-      <div className="w-full md:w-3/4 p-4 md:p-10 mt-8">{children}</div>
+      <div className="w-full md:w-3/4 p-10">{children}</div>
     </aside>
   );
 };

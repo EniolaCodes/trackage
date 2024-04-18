@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Adminlayout from './adminlayout'
-import TopNav from '@/components/TopNav';
+
 
 const PackageManagement = () => {
   const [packages, setPackages] = useState([]);
@@ -56,7 +56,7 @@ const PackageManagement = () => {
   return (
 
     <Adminlayout>
-      <TopNav/>
+      
 <div className="">
       <div className="flex justify-between items-center mb-4">
         <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md text-lg" onClick={addNewPackage}>Add New Package</button>

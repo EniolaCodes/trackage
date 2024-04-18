@@ -88,7 +88,7 @@ const Packagemanagement = () => {
   
   return (
     <Adminlayout>
-      <TopNav/>
+      
       <div className="flex justify-end mb-6">
         <input
           ref={searchInputRef}

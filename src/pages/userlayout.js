@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import MenuItem from '@/components/MenuItem';
+import ProfileImg from '../../public/assets/profile2.jpg'
 import { useEffect, useState } from 'react';
 import { BiSolidPackage } from 'react-icons/bi';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
@@ -76,7 +77,7 @@ const Userlayout = ({ children }) => {
           }
         >
           <div>
-            <div className="flex w-full items-center justify-between">
+            <div className="flex w-full items-center justify-between mb-6">
               <Link href="/">
                 <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={150} height={150} />  
               </Link>
@@ -85,16 +86,21 @@ const Userlayout = ({ children }) => {
               </div>
             </div>
             <ul className="flex flex-col">
+            <Link href="/profile" className="flex items-center justify-between mb-4">
+            <h3 className="mr-4 text-lg font-semibold">Chiamanda</h3>
+            <Image src={ProfileImg} alt='/' width={16} height={16} className='rounded-full
+             hover:scale-110 ease-in duration-300 '/>
+        </Link>
               <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}  >
                 Dashboard
               </MenuItem>
-              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />} >
+              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />}>
                 My Orders
               </MenuItem>
               <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} >
                 Tracking History
               </MenuItem>
-              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />} >
+              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />}>
                 Notification
               </MenuItem>
               <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} >
@@ -111,7 +117,7 @@ const Userlayout = ({ children }) => {
         </div>
       </div>
 
-      <div className="w-full md:w-3/4 p-4 md:p-10 mt-8">{children}</div>
+      <div className="w-full md:w-3/4 p-10 ">{children}</div>
     </aside>
   );
 };
