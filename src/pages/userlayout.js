@@ -30,8 +30,8 @@ const Userlayout = ({ children }) => {
   }, [router.pathname]);
 
   return (
-    <aside className="flex flex-col md:flex-row overflow-hidden">
-      <div className="bg-blue-50 w-full md:w-1/4 min-h-screen md:h-auto md:border-r border-gray-200">
+    <aside className="flex flex-col min-h-full  md:flex-row">
+      <div className="bg-blue-50 min-h-full md:w-1/4 md:h-screen">
         <div className="flex items-center justify-between p-4">
           <Link href="/">
             <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={200} height={200} />
@@ -68,7 +68,7 @@ const Userlayout = ({ children }) => {
       </div>
 
       {/* Menu Overlay */}
-      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : 'hidden'}>
+      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''}>
         <div
           className={
             nav
@@ -86,30 +86,30 @@ const Userlayout = ({ children }) => {
               </div>
             </div>
             <ul className="flex flex-col">
-            <Link href="/profile" className="flex items-center justify-between mb-4">
+            {/* <Link href="/profile" className="flex items-center justify-between mb-4">
             <h3 className="mr-4 text-lg font-semibold">Chiamanda</h3>
             <Image src={ProfileImg} alt='/' width={16} height={16} className='rounded-full
              hover:scale-110 ease-in duration-300 '/>
-        </Link>
-              <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}  >
+        </Link> */}
+              <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={() => setNav(false)} >
                 Dashboard
               </MenuItem>
-              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />}>
+              <MenuItem active={activeTab === '/orders'} href="/orders" icon={<BiSolidPackage />}onClick={() => setNav(false)}>
                 My Orders
               </MenuItem>
-              <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />} >
+              <MenuItem active={activeTab === '/history'} href="/history" icon={<MdTrackChanges />}onClick={() => setNav(false)} >
                 Tracking History
               </MenuItem>
-              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />}>
+              <MenuItem active={activeTab === '/notification'} href="/notification" icon={<MdNotifications />}onClick={() => setNav(false)}>
                 Notification
               </MenuItem>
-              <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} >
+              <MenuItem active={activeTab === '/settings'} href="/settings" icon={<MdOutlineSettings />} onClick={() => setNav(false)}>
                 Settings
               </MenuItem>
-              <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />} >
+              <MenuItem active={activeTab === '/helpcenter'} href="/helpcenter" icon={<MdOutlineHelp />} onClick={() => setNav(false)}>
                 Help Center
               </MenuItem>
-              <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />} >
+              <MenuItem active={activeTab === '/userlogout'} href="/userlogout" icon={<MdOutlineLogout />} onClick={() => setNav(false)}>
                 Log Out
               </MenuItem>
             </ul>
@@ -117,7 +117,7 @@ const Userlayout = ({ children }) => {
         </div>
       </div>
 
-      <div className="w-full md:w-3/4 p-10 ">{children}</div>
+      <div className="w-full p-6 md:w-3/4 md:p-10">{children}</div>
     </aside>
   );
 };

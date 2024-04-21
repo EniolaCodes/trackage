@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 
 const Adminlayout = ({ children }) => {
-  const [activeTab, setActiveTab] = useState('/dashboard');
+  const [activeTab, setActiveTab] = useState('/admindashboard');
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -22,8 +22,8 @@ const Adminlayout = ({ children }) => {
   }, [router.pathname]);
 
   return (
-    <aside className="flex flex-col md:flex-row overflow-hidden">
-      <div className="bg-blue-50 w-full md:w-1/4 min-h-screen md:h-auto md:border-r border-gray-200">
+    <aside className="flex flex-col min-h-full md:flex-row">
+      <div className="bg-blue-50 min-h-full md:w-1/4 md:h-screen">
         <div className="flex items-center justify-between p-4">
           <div>
             <Image src={'/assets/Frame 18.png'} alt="trackage logo" width={200} height={200} />
@@ -32,8 +32,8 @@ const Adminlayout = ({ children }) => {
             <AiOutlineMenu size={25} />
           </div>
         </div>
-        <ul className='hidden:md:block'>
-          <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />}>
+        <ul className='hidden md:block text-lg'>
+          <MenuItem active={activeTab === '/admindashboard'} href="/admindashboard" icon={<MdHomeFilled />}>
             Dashboard
           </MenuItem>
           <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />}>
@@ -55,7 +55,7 @@ const Adminlayout = ({ children }) => {
       </div>
 
       {/* Menu Overlay */}
-      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : 'hidden'}>
+      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''}>
         <div
           className={
             nav
@@ -71,30 +71,29 @@ const Adminlayout = ({ children }) => {
               </div>
             </div>
             <ul className="flex flex-col">
-              <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} >
+              <MenuItem active={activeTab === '/admindashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={() => setNav(false)}>
                 Dashboard
               </MenuItem>
-              <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} >
+              <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />} onClick={() => setNav(false)}>
                Package Management
               </MenuItem>
-              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} >
+              <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />} onClick={() => setNav(false)}>
                 Tracking Overview
               </MenuItem>
-              <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} >
+              <MenuItem active={activeTab === '/adminnotification'} href="/adminnotification" icon={<MdNotifications />} onClick={() => setNav(false)}>
                 Notification
               </MenuItem>
-              <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} >
+              <MenuItem active={activeTab === '/adminsettings'} href="/adminsettings" icon={<MdOutlineSettings />} onClick={() => setNav(false)}>
                 Settings
               </MenuItem>
-              <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} >
+              <MenuItem active={activeTab === '/adminlogout'} href="/adminlogout" icon={<MdOutlineLogout />} onClick={() => setNav(false)}>
                 Log Out
               </MenuItem>
             </ul>
           </div>
         </div>
       </div>
-
-      <div className="w-full md:w-3/4 p-10">{children}</div>
+      <div className="w-full p-6 md:w-3/4 md:p-10">{children}</div>
     </aside>
   );
 };

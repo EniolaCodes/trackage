@@ -29,9 +29,8 @@ export default function Signin(){
         }
 }
     return(
-        <main className='flex flex-col md:flex-row min-h-screen bg-gray-100'>
-        {/* <section className='flex-1 items-center justify-center md:items-start bg-white'> </section> */}
-        <section className='flex-1 items-center justify-center md:items-start bg-white'>
+        <main className='flex flex-col min-h-screen bg-gray-100'>
+        <section className='flex-1 items-center justify-center'>
             <div className='p-6 md:p-12'>
                 <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                     <h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>Sign in</h2>
@@ -81,8 +80,8 @@ export default function Signin(){
                             <span className="px-3 text-gray-900">or</span>
                         <div className="flex-1 border-t-2 border-gray-200"></div>
                     </div>
-                    <div className="mt-4">
-                        <button type="button"  className="flex sm:mx-auto sm:w-full sm:max-w-sm justify-center items-center rounded-md  px-4 py-1.5 text-sm 
+                    <div className="mt-4 flex justify-center items-start">
+                        <button type="button"  className="flex items-center sm:mx-auto sm:w-full sm:max-w-sm md:justify-center  rounded-md  px-4 py-1.5 text-sm 
                             text-orange-400 border border-solid border-orange-400 shadow-sm hover:bg-orange-300 hover:text-white">
                         <Image src={'/assets/google.svg'} alt="google image" width="20" height={20} className="mr-2"></Image>
                             Sign in with Google

@@ -78,14 +78,14 @@ const Orders = () => {
           Search
         </button>
       </div>
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className="min-w-full overflow-x-auto bg-white border border-gray-200">
         <thead>
           <tr>
-            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Name</th>
-            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Tracking Number</th>
-            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Deported Date</th>
-            <th className="text-left px-6 py-3 bg-blue-100   uppercase tracking-wider">Delivery Date</th>
-            <th className="text-left px-6 py-3 bg-blue-100 uppercase tracking-wider">Status</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Name</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Tracking Number</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Deported Date</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Delivery Date</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100 uppercase tracking-wider">Status</th>
           </tr>
         </thead>
 
@@ -107,12 +107,12 @@ const Orders = () => {
   ) : (
     packages.map((pack) => (
       <tr key={pack.id}>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">
-          <button className={`px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">
+          <button className={`textsm: md:text:lg px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
             {pack.status}
           </button>
         </td>

@@ -106,7 +106,7 @@ const Tracking = () => {
   return(
     <Userlayout>
       <TopNav/>
-<div className="">
+<div className="overflow-x-auto">
       <div className="flex justify-end mb-6">
         <input
           ref={searchInputRef}
@@ -123,14 +123,14 @@ const Tracking = () => {
           Search
         </button>
       </div>
-      <table className="w-full border-collapse">
+      <table className="w-full border-collapse overflow-x-auto">
         <thead className='bg-blue-100 rounded-3xl'> 
           <tr>
-            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Name</th>
-            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Tracking ID</th>
-            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Deported Date</th>
-            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Delivery Date</th>
-            <th className="border border-gray-300 uppercase px-4 py-2 text-center">Status</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Name</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Tracking ID</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Deported Date</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Delivery Date</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -151,12 +151,12 @@ const Tracking = () => {
   ) : (
     packages.map((pack) => (
       <tr key={pack.id}>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
-        <td className="border border-gray-300 px-4 py-2 text-center">
-          <button className={`px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">
+          <button className={`textsm: md:text:lg px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
             {pack.status}
           </button>
         </td>

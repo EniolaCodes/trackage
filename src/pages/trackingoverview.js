@@ -57,9 +57,9 @@ const PackageManagement = () => {
 
     <Adminlayout>
       
-<div className="">
-      <div className="flex justify-between items-center mb-4">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md text-lg" onClick={addNewPackage}>Add New Package</button>
+<div className="overflow-x-auto">
+      <div className="flex justify-between items-center mb-4 ">
+        <button className="text-sm bg-blue-500 text-white px-4 py-2 rounded-md shadow-md md:text-lg" onClick={addNewPackage}>Add New Package</button>
         <input
           type="text"
           value={searchTerm}
@@ -69,20 +69,20 @@ const PackageManagement = () => {
         />
       </div>
       {filteredPackages.map(pkg => (
-        <table key={pkg.id} className="w-full mb-4 rounded-lg shadow-md">
-          <thead className='border-t border-b bg-blue-100'>
+        <table key={pkg.id} className="w-full mb-4 rounded-lg shadow-md overflow-x-auto px-8">
+          <thead className='overflow-x-auto border-t border-b bg-blue-100'>
               < tr className='rounded-3xl'>
-              <th className=" px-4 py-2 text-center uppercase" >Tracking ID</th>
-              <th className=" px-4 py-2 text-center uppercase">Customer Name</th>
-              <th className="px-4 py-2 text-center uppercase">Date Submitted</th>
-              <th className= "px-4 py-2 text-center uppercase">Status</th>
-              <th className="px-4 py-2 text-center uppercase" >Actions</th>
+              <th className="text-sm md:text-lg px-4 py-2 text-center uppercase" >Tracking ID</th>
+              <th className="text-sm md:text-lg px-4 py-2 text-center uppercase">Customer Name</th>
+              <th className="text-sm md:text-lg px-4 py-2 text-center uppercase">Date Submitted</th>
+              <th className= "text-sm md:text-lg px-4 py-2 text-center uppercase">Status</th>
+              <th className="text-sm md:text-lg px-4 py-2 text-center uppercase" >Actions</th>
             </tr>
           </thead>
           <tbody className='border-t border-b bg-blue-100 '>
             <tr className='rounded-3xl'>
-              <td className=" px-4 py-2 text-center">{pkg.trackingId}</td>
-              <td className="  px-4 py-2 text-center">
+              <td className="text-sm md:text-lg px-4 py-2 text-center">{pkg.trackingId}</td>
+              <td className="text-sm md:text-lg   px-4 py-2 text-center">
                 <input
                   type="text"
                   value={pkg.customerName}
@@ -92,13 +92,14 @@ const PackageManagement = () => {
                  
                 />
               </td>
-              <td className="px-4 py-2 text-center">{pkg.dateSubmitted}</td>
-              <td className={`px-4 py-2 text-center ${pkg.status === 'Deleted' ? 'text-red-500 uppercase font-bold' : (pkg.status === 'Approved' ? 'text-green-500 uppercase font-bold' : '')}`}>{pkg.status}</td>
+              <td className="text-sm md:text-lg px-4 py-2 text-center">{pkg.dateSubmitted}</td>
+              <td className={`text-sm md:text-lg px-4 py-2 text-center ${pkg.status === 'Deleted' ? 'text-red-500 uppercase font-bold '
+                  : (pkg.status === 'Approved' ? 'text-green-500 uppercase font-bold ' : '')}`}>{pkg.status}</td>
               <td className="px-4 py-2 text-center">
                 {pkg.status === 'Pending' && (
                   <>
-                    <button className="bg-green-500 text-white px-2 py-1 rounded-md shadow-md mr-2 hover:bg-green-600" onClick={() => confirmAction(pkg.id, 'approve')}>Approve</button>
-                    <button className="bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => confirmAction(pkg.id, 'delete')}>Delete</button>
+                    <button className="text-sm md:text-lg bg-green-500 text-white px-2 py-1 rounded-md shadow-md  mb-2 md:mr-2 hover:bg-green-600" onClick={() => confirmAction(pkg.id, 'approve')}>Approve</button>
+                    <button className="text-sm md:text-lg bg-red-500 text-white px-2 py-1 rounded-md shadow-md hover:bg-red-600" onClick={() => confirmAction(pkg.id, 'delete')}>Delete</button>
                   </>
                 )}
               </td>

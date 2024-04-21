@@ -9,15 +9,16 @@ const Helpcenter = () => {
   return (
     <Userlayout>
       <TopNav/>
+      <div className='overflow-auto'>
       <div className="flex flex-col md:flex-row justify-between mb-8">
-        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mr-0 md:mr-4 md:mb-0">
+        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mb-4 mr-0 md:mr-4 md:mb-0">
           <Link href="/chatbox" className="">
             <FaRocketchat size={25} />
             <h3 className="mb-6 font-bold mt-2">Chat with Support</h3>
             <p>Our team is here to assist you. Reach out to us anytime for help.</p>
           </Link>
         </div>
-        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mr-0 md:mr-4 md:mb-0">
+        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mb-4 mr-0 md:mr-4 md:mb-0">
           <Link href="#" className="">
             <FaPhone size={25} />
             <h3 className="font-bold mt-2">Contact Trackage</h3>
@@ -25,7 +26,7 @@ const Helpcenter = () => {
             <p>Our team is here to assist you. Reach out to us anytime for help.</p>
           </Link>
         </div>
-        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md">
+        <div className="text-blue-700 text-lg bg-blue-100 border-t border-b p-4 rounded-md mb-4 mr-0 md:mr-4 md:mb-0">
           <Link href="#" className="">
             <MdEmail size={25} />
             <h3 className="font-bold mt-2">Send us a Mail</h3>
@@ -34,8 +35,13 @@ const Helpcenter = () => {
           </Link>
         </div>
       </div>
-      <h1 className="text-2xl text-left my-8">FREQUENTLY ASKED QUESTIONS</h1>
+      </div>
+
+      <h1 className="text-xl md:text-2xl text-left my-8">FREQUENTLY ASKED QUESTIONS</h1>
+      <div className='overflow-auto'>
       <FAQContainer />
+      </div>
+     
     </Userlayout>
   );
 };

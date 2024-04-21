@@ -88,7 +88,7 @@ const Packagemanagement = () => {
   
   return (
     <Adminlayout>
-      
+      <div className='overflow-x-auto'>
       <div className="flex justify-end mb-6">
         <input
           ref={searchInputRef}
@@ -98,21 +98,21 @@ const Packagemanagement = () => {
           placeholder="Search...."
           className="border border-gray-300 rounded-md px-4 py-2 mr-2"
         />
-        <button
+        <button 
           onClick={handleSearch}
           className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md"
         >
           Search
         </button>
       </div>
-      <table className="w-full mb-4 rounded-md shadow-md">
+      <table className="min-w-full mb-4 rounded-md shadow-md overflow-auto">
         <thead className='border-t border-b bg-blue-100'> 
           <tr className='rounded-3xl'>
-            <th className="uppercase px-4 py-2 text-center">Name</th>
-            <th className="uppercase px-4 py-2 text-center">Tracking ID</th>
-            <th className="uppercase px-4 py-2 text-center">Deported Date</th>
-            <th className="uppercase px-4 py-2 text-center">Delivery Date</th>
-            <th className="uppercase px-4 py-2 text-center">Status</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Tracking ID</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Name</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Deported Date</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Delivery Date</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Status</th>
           </tr>
         </thead>
         <tbody className='border-t border-b bg-blue-100 '>
@@ -124,7 +124,7 @@ const Packagemanagement = () => {
         <td className="px-4 py-2 text-center">{result.deportedDate}</td>
         <td className="px-4 py-2 text-center">{result.deliveryDate}</td>
         <td className="px-4 py-2 text-center">
-          <button className={`px-4 py-2 rounded-md shadow-md text-white ${getStatusColor(result.status)}`}>
+          <button className={`text-sm md:text-lg px-4 py-2 rounded-md shadow-md text-white ${getStatusColor(result.status)}`}>
             {result.status}
           </button>
         </td>
@@ -133,12 +133,12 @@ const Packagemanagement = () => {
   ) : (
     packages.map((pack) => (
       <tr key={pack.id}>
-        <td className="px-4 py-2 text-center">{pack.name}</td>
-        <td className=" px-4 py-2 text-center">{pack.trackingId}</td>
-        <td className=" px-4 py-2 text-center">{pack.deportedDate}</td>
-        <td className=" px-4 py-2 text-center">{pack.deliveryDate}</td>
-        <td className=" px-4 py-2 text-center">
-          <button className={`px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
+        <td className="text-sm md:text-lg px-4 py-2 text-center">{pack.name}</td>
+        <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.deportedDate}</td>
+        <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.deliveryDate}</td>
+        <td className="text-sm md:text-lg  px-4 py-2 text-center">
+          <button className={`text-sm md:text:lg px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
             {pack.status}
           </button>
         </td>
@@ -148,8 +148,7 @@ const Packagemanagement = () => {
 </tbody>
 
       </table>
-    
-     
+      </div>
     </Adminlayout>
   )
 }

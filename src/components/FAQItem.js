@@ -15,7 +15,7 @@ const FAQItem = ({ question, answer }) => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M19 9l-7 7-7-7" : "M5 15l7-7 7 7"} />
         </svg>
       </button>
-      {isOpen && <p className="mt-2 p-2 font-semibold">{answer}</p>}
+      {isOpen && <p className="mt-2 p-2 text-slate-800">{answer}</p>}
     </div>
   );
 };
