@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 
 export default function Signup(){
-    const [show, setShow] = useState({ password: false});
+    const [show, setShow] = useState(false);
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,6 +17,10 @@ export default function Signup(){
 
     const handleSubmit =  (e) => {
         e.preventDefault();
+        if (!email || !password || !username) {
+            setError("Please enter all fields.");
+            return;
+        }
         router.push('/signin')
     }
     
@@ -43,7 +47,7 @@ export default function Signup(){
                 <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                     <form onSubmit={handleSubmit}>
                         <div className='mt-4'>
-                            <div className="">
+                            <div className="relative">
                                 <label htmlFor='Name' className="block font-medium leading-6 text-lg text-gray-800">Username: </label>
                                 <input name="name" type="name" value={username}
                                 onChange={(e) => setUserName(e?.target?.value)}
@@ -51,28 +55,31 @@ export default function Signup(){
                                 py-1.5 pl-2 text-gray-900 
                                 shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                                <span className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-200'>
-                                <HiOutlineUser size={25} /></span>
+                                <div className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-200'>
+                                <HiOutlineUser size={25} /></div>
                             </div>
-                            <div className="mt-6">
+                            <div className="mt-6 relative">
                                 <label htmlFor='email' className="block font-medium leading-6 text-lg text-gray-800">Email: </label>
                                 <input name="email" type="email" value={email} onChange={(e) => setEmail(e?.target?.value)}
                                     placeholder="LauranSomebody@gmail.com" className="block w-full rounded-md border-0 mt-2 text-sm
                                     py-1.5 pl-2 text-gray-900 
                                     shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                                <span className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-100' > <HiAtSymbol size={25} /></span>
+                                <div className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-100' > <HiAtSymbol size={25} /></div>
                             </div>
-                            <div className="mt-6">
-                                <label htmlFor='password' className="block font-medium leading-6 text-lg text-gray-800">Password: </label>
-                                <input name="password" placeholder="*********" value={password} onChange={(e) => setPassword(e?.target?.value)}
-                                    type={`${show.password ? "text" : "password"}`} className="block w-full rounded-md border-0 mt-2 text-sm
-                                    py-1.5 pl-2 text-gray-900 
-                                    shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
-                                    focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                                <span className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-100 cursor-pointer hover:text-gray-300'  onClick={() => setShow({ ...show, password: !show?.password})}>
-                                    <HiFingerPrint size={25} /></span>
-                            </div>
+                            
+                            <div className="mt-6 relative">
+                        <label htmlFor='password' className="block font-medium leading-6 text-lg text-gray-800">Password: </label>
+                        <input name="password"  type={`${show ? "text" : "password"}`}placeholder="**********" value={password} onChange={(e) => setPassword(e?.target?.value)}   
+                            className="block w-full rounded-md border-0 mt-2 text-sm py-1.5 pl-2 text-gray-900  shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
+                                focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                         <span
+                            className="absolute inset-y-12 right-0 flex items-center pr-2 cursor-pointer text-gray-100 hover:text-gray-300"  onClick={() => setShow(!show)}   >
+                                {show ? <HiFingerPrint size={25} /> : <HiFingerPrint size={25} />}   
+                         </span>
+                    </div>
+
                             <div className="mt-6 flex items-start">
                                     <input type="checkbox" className="mx-1.5 block w-8 h-10 rounded-sm bg-white border-4 cursor-pointer"/>
                                     <label className="text-xs">By clicking Signup, you are agreeing to the <a href="#" className="text-indigo-600 hover:text-indigo-500 text-xs">Terms, Conditions & Privacy policy of Trackage</a></label>
@@ -84,7 +91,7 @@ export default function Signup(){
                                     >
                                     Sign Up
                                     </button>
-                                    <p className="text-red-600 text-[16px] mb-4">{error && error}</p>
+                                    <p className="text-red-600 text-l mb-8">{error && error}</p>
                                 </div>
                                 <div className="mt-6 flex justify-center">
                                     <p className="text-sm mr-4">Already have an account? </p>

@@ -108,8 +108,8 @@ const Packagemanagement = () => {
       <table className="min-w-full mb-4 rounded-md shadow-md overflow-auto">
         <thead className='border-t border-b bg-blue-100'> 
           <tr className='rounded-3xl'>
-            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Tracking ID</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Name</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Tracking Id</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Deported Date</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Delivery Date</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Status</th>

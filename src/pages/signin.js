@@ -40,27 +40,30 @@ export default function Signin(){
                 {error && <div className={styles.error}>{error}</div>}
                 <form onSubmit={handleLogin}>
                 <div className='mt-4'>
-                    <div className="mt-6">
+                    <div className="mt-6 relative">
                         <label htmlFor='email' className="block font-medium leading-6 text-lg text-gray-800">Email: </label>
                         <input  name="email"  type="email" value={email} onChange={(e) => setEmail(e?.target?.value)}   className="block w-full rounded-md border-0 mt-2
                                 py-1.5 pl-2 text-gray-900 text-sm
                                 shadow-sm ring-1 ring-insert ring-gray-300  focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6" 
                         />
-                        <span className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-200'>
-                        <HiAtSymbol size={25} />
-                        </span> 
+                    
+
+                         <div className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-100' > <HiAtSymbol size={25} /></div>
                     </div>
-                    <div className="mt-6">
+
+                    <div className="mt-6 relative">
                         <label htmlFor='password' className="block font-medium leading-6 text-lg text-gray-800">Password: </label>
                         <input name="password"  type={`${show ? "text" : "password"}`}placeholder="**********" value={password} onChange={(e) => setPassword(e?.target?.value)}   
                             className="block w-full rounded-md border-0 mt-2 text-sm py-1.5 pl-2 text-gray-900  shadow-sm ring-1 ring-insert ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                 focus:ring-insert focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
-                        <span className='absolute inset-y-12 right-0 flex items-center pr-3 text-gray-100 cursor-pointer hover:text-gray-300' onClick={() => setShow(!show)} >
-                            <HiFingerPrint size={25} />
-                        </span>
+                         <span
+                            className="absolute inset-y-12 right-0 flex items-center pr-2 cursor-pointer text-gray-200 hover:text-gray-300"  onClick={() => setShow(!show)}   >
+                                {show ? <HiFingerPrint size={25} /> : <HiFingerPrint size={25} />}   
+                         </span>
                     </div>
+
                     <div className="flex justify-between mt-4">
                         <span className="flex items-center">
                             <input type="checkbox" className="mr-2 h-4 w-4"/>
