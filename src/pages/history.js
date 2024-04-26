@@ -9,40 +9,45 @@ const Tracking = () => {
   const [packages, setPackages] = useState([
     {
       id: 1,
-      name: 'Chow',
+      name: 'Chon',
       trackingId: 'TKG066',
+      destination: "Kubwa, Abuja",
       deportedDate: 'April 27, 2024',
       deliveryDate: 'May 1, 2024',
       status: 'Canceled'
     },
     {
       id: 2,
-      name: 'BYC',
+      name: 'CLD',
       trackingId: 'TKG087',
+      destination: "Ketu, Lagos",
       deportedDate: 'March 27, 2024',
       deliveryDate: 'March 29, 2024',
       status: 'Delivered'
     },
     {
       id: 3,
-      name: 'Maryam',
+      name: 'BYC',
       trackingId: 'TKG054',
+      destination: "Airport road, Ilorin",
       deportedDate: 'April 14, 2024',
       deliveryDate: 'April 29, 2024',
       status: 'Delivered'
     },
     {
       id: 4,
-      name: 'GUO',
+      name: 'GUP',
       trackingId: 'TKG038',
+      destination: "Ringroad, Benin",
       deportedDate: 'April 1, 2024',
       deliveryDate: 'April 5, 2024',
       status: 'Canceled'
     },
     {
       id: 5,
-      name: 'Simon',
+      name: 'KPM',
       trackingId: 'TKG011',
+      destination: "Tollgate, Delta",
       deportedDate: 'March 17, 2024',
       deliveryDate: ' March 19, 2024',
       status: 'Delivered'
@@ -51,6 +56,7 @@ const Tracking = () => {
       id: 6,
       name: 'BYC',
       trackingId: 'TKG084',
+      destination: "Sabo, Minna",
       deportedDate: 'April 10, 2024',
       deliveryDate: ' April 19, 2024',
       status: 'Canceled'
@@ -128,6 +134,7 @@ const Tracking = () => {
           <tr>
             <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Name</th>
             <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Tracking ID</th>
+            <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Destination</th>
             <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Deported Date</th>
             <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Delivery Date</th>
             <th className="text-sm md:border border-gray-300 md:text-lg uppercase px-4 py-2 text-center">Status</th>
@@ -139,6 +146,7 @@ const Tracking = () => {
       <tr key={result.id}>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.name}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.trackingId}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.destination}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.deportedDate}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.deliveryDate}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">
@@ -153,6 +161,7 @@ const Tracking = () => {
       <tr key={pack.id}>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.destination}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">

@@ -14,6 +14,7 @@ const PackageManagement = () => {
     const newPackage = {
       id: packages.length + 1,
       trackingId: `TRG00${packages.length + 1}`,
+      destination:'',
       customerName: '',
       dateSubmitted: new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }),
       status: 'Pending'
@@ -23,11 +24,14 @@ const PackageManagement = () => {
   const handleStatusChange = (id, newStatus) => {
     setPackages(packages.map(pkg => pkg.id === id ? { ...pkg, status: newStatus } : pkg));
   };
-
+   
   const handleCustomerNameChange = (id, newName) => {
     setPackages(packages.map(pkg => pkg.id === id ? { ...pkg, customerName: newName } : pkg));
   };
 
+  const destinationChange = (id, newDestination) => {
+    setPackages(packages.map(pkg => pkg.id === id ? { ...pkg, destination: newDestination } : pkg));
+  };
   
   const filteredPackages = packages.filter(pkg =>
     pkg.trackingId.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -74,6 +78,7 @@ const PackageManagement = () => {
               < tr className='rounded-3xl'>
               <th className="text-sm md:text-lg px-4 py-2 text-center uppercase" >Tracking ID</th>
               <th className="text-sm md:text-lg px-4 py-2 text-center uppercase">Customer Name</th>
+              <th className="text-sm md:text-lg px-4 py-2 text-center uppercase">Destination</th>
               <th className="text-sm md:text-lg px-4 py-2 text-center uppercase">Date Submitted</th>
               <th className= "text-sm md:text-lg px-4 py-2 text-center uppercase">Status</th>
               <th className="text-sm md:text-lg px-4 py-2 text-center uppercase" >Actions</th>
@@ -88,6 +93,16 @@ const PackageManagement = () => {
                   value={pkg.customerName}
                   onChange={e => handleCustomerNameChange(pkg.id, e.target.value)}
                   onBlur={() => handleCustomerNameChange(pkg.id, pkg.customerName)}
+                  className="w-full rounded-md px-2 py-1 focus:outline-none"
+                 
+                />
+              </td>
+              <td className="text-sm md:text-lg   px-4 py-2 text-center">
+                <input
+                  type="text"
+                  value={pkg.destination}
+                  onChange={e => destinationChange(pkg.id, e.target.value)}
+                  onBlur={() => destinationChange(pkg.id, pkg.destination)}
                   className="w-full rounded-md px-2 py-1 focus:outline-none"
                  
                 />

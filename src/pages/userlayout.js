@@ -86,11 +86,6 @@ const Userlayout = ({ children }) => {
               </div>
             </div>
             <ul className="flex flex-col">
-            {/* <Link href="/profile" className="flex items-center justify-between mb-4">
-            <h3 className="mr-4 text-lg font-semibold">Chiamanda</h3>
-            <Image src={ProfileImg} alt='/' width={16} height={16} className='rounded-full
-             hover:scale-110 ease-in duration-300 '/>
-        </Link> */}
               <MenuItem active={activeTab === '/dashboard'} href="/dashboard" icon={<MdHomeFilled />} onClick={() => setNav(false)} >
                 Dashboard
               </MenuItem>

@@ -9,10 +9,10 @@ const Orders = () => {
  
   // Dummy data for demonstration
   const [packages, setPackages] = useState( [
-    { name: 'GIG', trackingId: 'TKG081', deportedDate: 'March 23, 2024', deliveryDate: 'March 27, 2024', status: 'Pending' },
-    { name: 'Maryam', trackingId: 'TKG003', deportedDate: 'March 28, 2024', deliveryDate: 'April 20, 2024',  status: 'In-Transit' },
-    { name: 'Dominos', trackingId: 'TKG053', deportedDate: 'March 31, 2024', deliveryDate: 'April 20, 2024',  status: 'In-Transit' },
-    { name: 'Simon', trackingId: 'TKG009', deportedDate: 'April 20 23, 2024', deliveryDate: 'April 27, 2024', status: 'Pending' },
+    { name: 'GTY', trackingId: 'TKG081', destination: "Aba, Enugu", deportedDate: 'March 23, 2024', deliveryDate: 'March 27, 2024', status: 'Pending' },
+    { name: 'KPM', trackingId: 'TKG003', destination:"Molete, Ibadan", deportedDate: 'March 28, 2024', currentLocation:'Berger, Lagos', deliveryDate: 'April 20, 2024',  status: 'In-Transit' },
+    { name: 'BYC', trackingId: 'TKG053', destination:"Nzukka, Enugu", deportedDate: 'March 31, 2024', currentLocation:'Edo, Benin',  deliveryDate: 'April 20, 2024',  status: 'In-Transit' },
+    { name: 'DFG', trackingId: 'TKG009', destination:"DanFodio, Zamfara", deportedDate: 'April 20 23, 2024', deliveryDate: 'April 27, 2024', status: 'Pending' },
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -82,8 +82,10 @@ const Orders = () => {
         <thead>
           <tr>
             <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Name</th>
-            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Tracking Number</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Tracking Id</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Destination</th>
             <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Deported Date</th>
+            <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Current Location</th>
             <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100   uppercase tracking-wider">Delivery Date</th>
             <th className="text-sm md:text-left md:text-lg px-6 py-3 bg-blue-100 uppercase tracking-wider">Status</th>
           </tr>
@@ -95,7 +97,9 @@ const Orders = () => {
       <tr key={result.id}>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.name}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.trackingId}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.destination}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.deportedDate}</td>
+        <td className="border border-gray-300 px-4 py-2 text-center">{result.currentLocation}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">{result.deliveryDate}</td>
         <td className="border border-gray-300 px-4 py-2 text-center">
           <button className={`px-4 py-2 rounded-md shadow-md text-white ${getStatusColor(result.status)}`}>
@@ -109,10 +113,12 @@ const Orders = () => {
       <tr key={pack.id}>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.name}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.destination}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deportedDate}</td>
+        <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.currentLocation}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">{pack.deliveryDate}</td>
         <td className="text-sm md:text-lg border border-gray-300 px-4 py-2 text-center">
-          <button className={`textsm: md:text:lg px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
+          <button className={`text-sm px-4 py-2 rounded-3xl shadow-md text-white ${getStatusColor(pack.status)}`}>
             {pack.status}
           </button>
         </td>

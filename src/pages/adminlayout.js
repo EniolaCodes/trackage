@@ -39,6 +39,9 @@ const Adminlayout = ({ children }) => {
           <MenuItem active={activeTab === '/trackingoverview'} href="/trackingoverview" icon={<BiSolidPackage />}>
                Package Management
               </MenuItem>
+              <MenuItem active={activeTab === '/tracking'} href="/tracking" icon={<MdTrackChanges />}>
+                Package Tracking
+              </MenuItem>
               <MenuItem active={activeTab === '/packagemanagement'} href="/packagemanagement" icon={<MdTrackChanges />}>
                 Tracking Overview
               </MenuItem>

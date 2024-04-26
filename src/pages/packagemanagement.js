@@ -1,19 +1,21 @@
 import React from 'react'
 import Adminlayout from './adminlayout';
 import { useState, useEffect, useRef } from 'react';
-import TopNav from '@/components/TopNav';
+
 
 
 const Packagemanagement = () => {
   const [packages, setPackages] = useState([
-    {name: 'Chow',
+    {name: 'Chon',
     trackingId: 'TKG076',
+    destination: 'Yaba, Lagos',
     deportedDate: 'February 27, 2024',
     deliveryDate: 'February 28, 2024',
     status: 'Canceled'},
     {
-      name: 'Maryam',
+      name: 'KPM',
       trackingId: 'TKG066',
+      destination: 'Sabo, Kano',
       deportedDate: 'April 27, 2024',
       deliveryDate: 'May 1, 2024',
       status: 'Canceled'
@@ -21,6 +23,7 @@ const Packagemanagement = () => {
     {
       name: 'BTC',
       trackingId: 'TKG022',
+      destination: 'Aminu way, Zaria',
       deportedDate: 'April 12, 2024',
       deliveryDate: 'April 14, 2024',
       status: 'Delivered'
@@ -28,13 +31,15 @@ const Packagemanagement = () => {
     {
       name: 'MMM',
       trackingId: 'TKG054',
+      destination: 'Airport road, Lagos',
       deportedDate: 'February 27, 2024',
       deliveryDate: 'February 29, 2024',
       status: 'Canceled'
     },
     {
-      name: 'Chow',
+      name: 'BYC',
       trackingId: 'TKG066',
+      destination: 'Akute, Calabar',
       deportedDate: 'April 11, 2024',
       deliveryDate: 'April 23, 2024',
       status: 'Delivered'
@@ -110,6 +115,7 @@ const Packagemanagement = () => {
           <tr className='rounded-3xl'>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Name</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Tracking Id</th>
+            <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Destination</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Deported Date</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Delivery Date</th>
             <th className="text-sm md:text-lg uppercase px-4 py-2 text-center">Status</th>
@@ -121,6 +127,7 @@ const Packagemanagement = () => {
       <tr key={result.id}>
         <td className="px-4 py-2 text-center">{result.name}</td>
         <td className="px-4 py-2 text-center">{result.trackingId}</td>
+        <td className="px-4 py-2 text-center">{result.destination}</td>
         <td className="px-4 py-2 text-center">{result.deportedDate}</td>
         <td className="px-4 py-2 text-center">{result.deliveryDate}</td>
         <td className="px-4 py-2 text-center">
@@ -135,6 +142,7 @@ const Packagemanagement = () => {
       <tr key={pack.id}>
         <td className="text-sm md:text-lg px-4 py-2 text-center">{pack.name}</td>
         <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.trackingId}</td>
+        <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.destination}</td>
         <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.deportedDate}</td>
         <td className="text-sm md:text-lg  px-4 py-2 text-center">{pack.deliveryDate}</td>
         <td className="text-sm md:text-lg  px-4 py-2 text-center">
