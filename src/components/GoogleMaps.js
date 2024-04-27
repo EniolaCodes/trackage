@@ -42,7 +42,7 @@ export default function GoogleMaps() {
   return (
     
     <>
-  <div className="h-80" ref={mapRef} />
+  <div className="h-96" ref={mapRef} />
     </>
      
   );

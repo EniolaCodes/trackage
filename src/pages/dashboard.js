@@ -8,9 +8,7 @@ const Dashboard = () => {
     <Userlayout>
       <TopNav />
       <div className="flex flex-col">
-      <Link href="/placeorder" className="flex justify-end mb-8">
-          <button className="text-sm bg-blue-500 text-white px-4 py-2 rounded-md shadow-md md:text-lg">Create New Package</button>
-        </Link>
+      
         <div className="flex justify-end mb-6">
     <input
       type="text"
